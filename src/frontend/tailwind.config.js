@@ -66,6 +66,14 @@ export default {
           DEFAULT: "oklch(var(--info) / <alpha-value>)",
           foreground: "oklch(var(--info-foreground))",
         },
+        step1: {
+          DEFAULT: "oklch(var(--step1) / <alpha-value>)",
+          foreground: "oklch(var(--step1-foreground))",
+        },
+        step2: {
+          DEFAULT: "oklch(var(--step2) / <alpha-value>)",
+          foreground: "oklch(var(--step2-foreground))",
+        },
         chart: {
           1: "oklch(var(--chart-1))",
           2: "oklch(var(--chart-2))",
@@ -95,9 +103,9 @@ export default {
         xs: "0 1px 2px 0 rgba(0,0,0,0.05)",
         card: "0 4px 24px oklch(0 0 0 / 0.3), 0 1px 4px oklch(0 0 0 / 0.2)",
         "card-hover": "0 8px 40px oklch(0 0 0 / 0.4), 0 2px 8px oklch(0 0 0 / 0.3)",
-        glow: "0 0 40px oklch(0.72 0.18 168 / 0.25)",
-        "glow-accent": "0 0 40px oklch(0.78 0.18 75 / 0.20)",
-        "glow-strong": "0 0 60px oklch(0.72 0.18 168 / 0.40)",
+        glow: "0 0 30px oklch(0.72 0.16 200 / 0.20)",
+        "glow-accent": "0 0 30px oklch(0.72 0.16 200 / 0.15)",
+        "glow-strong": "0 0 50px oklch(0.72 0.16 200 / 0.35)",
       },
       keyframes: {
         "accordion-down": {
@@ -109,8 +117,8 @@ export default {
           to: { height: "0" },
         },
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 20px oklch(0.72 0.18 168 / 0.3)" },
-          "50%": { boxShadow: "0 0 40px oklch(0.72 0.18 168 / 0.6)" },
+          "0%, 100%": { boxShadow: "0 0 20px oklch(0.72 0.16 200 / 0.25)" },
+          "50%": { boxShadow: "0 0 40px oklch(0.72 0.16 200 / 0.50)" },
         },
         "scan-line": {
           "0%": { transform: "translateY(-100%)" },

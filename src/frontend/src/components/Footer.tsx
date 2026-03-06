@@ -7,16 +7,16 @@ export default function Footer() {
   )}`;
 
   return (
-    <footer className="mt-auto border-t border-border/40 py-6">
-      <div className="container mx-auto px-4 max-w-4xl flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-muted-foreground">
-        <div className="flex items-center gap-2">
+    <footer className="mt-auto border-t border-border/40 py-5 sm:py-6">
+      <div className="container mx-auto px-4 max-w-4xl flex flex-col items-center gap-3 text-sm text-muted-foreground sm:flex-row sm:justify-between">
+        <div className="flex items-center gap-2 text-center sm:text-left">
           <span className="font-mono text-xs opacity-60">Synapse</span>
           <span className="opacity-30">·</span>
           <span className="text-xs opacity-60">
             For informational purposes only
           </span>
         </div>
-        <div className="text-xs opacity-70 flex flex-col sm:flex-row items-center gap-1 sm:gap-2">
+        <div className="text-xs opacity-70 flex flex-col items-center gap-1 sm:flex-row sm:gap-2">
           <span>Contact: +91 98985 90856</span>
           <span className="hidden sm:inline opacity-40">·</span>
           <a

@@ -15,12 +15,15 @@ import {
   Clock,
   History,
   Loader2,
+  Lock,
+  LogIn,
   Trash2,
 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { toast } from "sonner";
 import type { History as HistoryItem } from "../backend.d";
+import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import { useClearHistory, useGetHistory } from "../hooks/useQueries";
 
 interface HistoryPanelProps {
@@ -48,6 +51,9 @@ export default function HistoryPanel({ onSelectResult }: HistoryPanelProps) {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const { data: history, isLoading } = useGetHistory();
   const clearMutation = useClearHistory();
+  const { identity, login } = useInternetIdentity();
+
+  const isAuthenticated = identity && !identity.getPrincipal().isAnonymous();
 
   const handleClear = async () => {
     try {
@@ -66,14 +72,11 @@ export default function HistoryPanel({ onSelectResult }: HistoryPanelProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.2 }}
     >
-      {/* Top accent line */}
-      <div className="h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
-
       {/* Header */}
-      <div className="px-6 sm:px-8 py-5 flex items-center justify-between border-b border-border/40">
+      <div className="px-4 sm:px-8 py-4 sm:py-5 flex items-center justify-between border-b border-border/40">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-accent/10 border border-accent/25 flex items-center justify-center">
-            <History className="w-5 h-5 text-accent" />
+          <div className="w-10 h-10 rounded-xl bg-muted/60 border border-border/50 flex items-center justify-center">
+            <History className="w-5 h-5 text-muted-foreground" />
           </div>
           <div>
             <h2 className="font-display text-lg font-semibold text-foreground">
@@ -142,6 +145,40 @@ export default function HistoryPanel({ onSelectResult }: HistoryPanelProps) {
         )}
       </div>
 
+      {/* Login prompt for anonymous users */}
+      {!isAuthenticated && (
+        <motion.div
+          data-ocid="history.login_prompt"
+          className="mx-4 sm:mx-8 my-4 flex items-start gap-3 px-4 py-4 rounded-xl border border-primary/20 bg-primary/5"
+          initial={{ opacity: 0, y: -6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.35, delay: 0.1 }}
+        >
+          <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-primary/15 border border-primary/25 flex items-center justify-center mt-0.5">
+            <Lock className="w-4 h-4 text-primary" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-medium text-foreground mb-0.5">
+              Save your history across devices
+            </p>
+            <p className="text-xs text-muted-foreground leading-relaxed mb-3">
+              Log in to tie your symptom checks to your personal account,
+              accessible from any device.
+            </p>
+            <Button
+              data-ocid="history.login_button"
+              size="sm"
+              variant="outline"
+              onClick={login}
+              className="h-8 px-3 text-xs border-primary/30 bg-primary/10 hover:bg-primary/15 hover:border-primary/50 text-primary rounded-lg gap-1.5 transition-all duration-200"
+            >
+              <LogIn className="w-3.5 h-3.5" />
+              Login to save history
+            </Button>
+          </div>
+        </motion.div>
+      )}
+
       {/* Content */}
       <div data-ocid="history.list" className="divide-y divide-border/30">
         {isLoading ? (
@@ -184,14 +221,14 @@ export default function HistoryPanel({ onSelectResult }: HistoryPanelProps) {
                 data-ocid={`history.item.${index + 1}`}
                 type="button"
                 onClick={() => onSelectResult(item)}
-                className="w-full text-left px-6 sm:px-8 py-4 hover:bg-secondary/30 transition-all duration-150 group flex items-start gap-3"
+                className="w-full text-left px-4 sm:px-8 py-4 hover:bg-secondary/30 transition-all duration-150 group flex items-start gap-3"
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
               >
                 {/* Index badge */}
-                <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center mt-0.5">
-                  <span className="text-xs font-mono font-bold text-primary">
+                <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-muted/50 border border-border/50 flex items-center justify-center mt-0.5">
+                  <span className="text-xs font-mono font-bold text-muted-foreground">
                     {index + 1}
                   </span>
                 </div>
@@ -199,7 +236,7 @@ export default function HistoryPanel({ onSelectResult }: HistoryPanelProps) {
                 {/* Content */}
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="font-medium text-sm text-foreground truncate">
+                    <span className="font-medium text-sm text-foreground truncate max-w-[200px] sm:max-w-none">
                       {item.disease || "Analysis complete"}
                     </span>
                   </div>

@@ -33,69 +33,75 @@
   :root {
     --radius: 0.75rem;
 
-    /* Deep teal-emerald dark theme */
-    --background: 0.12 0.02 210;
-    --foreground: 0.94 0.02 190;
+    /* Off-White background, Charcoal Grey text */
+    --background: 0.977 0.002 90;
+    --foreground: 0.22 0.004 270;
 
-    --card: 0.16 0.025 205;
-    --card-foreground: 0.94 0.02 190;
+    --card: 0.96 0.003 90;
+    --card-foreground: 0.22 0.004 270;
 
-    --popover: 0.18 0.025 205;
-    --popover-foreground: 0.94 0.02 190;
+    --popover: 0.96 0.003 90;
+    --popover-foreground: 0.22 0.004 270;
 
-    /* Primary: bright emerald-teal */
-    --primary: 0.72 0.18 168;
-    --primary-foreground: 0.08 0.02 210;
+    /* Primary: clean cyan-blue — medical, precise */
+    --primary: 0.52 0.14 200;
+    --primary-foreground: 0.98 0.002 90;
 
-    /* Secondary: muted teal */
-    --secondary: 0.22 0.04 200;
-    --secondary-foreground: 0.86 0.03 185;
+    /* Secondary: light grey */
+    --secondary: 0.90 0.004 270;
+    --secondary-foreground: 0.25 0.005 270;
 
     /* Muted */
-    --muted: 0.19 0.03 205;
-    --muted-foreground: 0.58 0.03 200;
+    --muted: 0.92 0.004 270;
+    --muted-foreground: 0.48 0.01 270;
 
-    /* Accent: warm amber for highlights */
-    --accent: 0.78 0.18 75;
-    --accent-foreground: 0.10 0.02 210;
+    /* Accent: same as primary — unified */
+    --accent: 0.52 0.14 200;
+    --accent-foreground: 0.98 0.002 90;
 
-    /* Destructive: coral red */
-    --destructive: 0.62 0.22 25;
-    --destructive-foreground: 0.97 0.01 0;
+    /* Destructive */
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0.002 90;
 
     /* Borders */
-    --border: 0.28 0.04 200;
-    --input: 0.24 0.04 205;
-    --ring: 0.65 0.16 168;
+    --border: 0.82 0.006 270;
+    --input: 0.85 0.005 270;
+    --ring: 0.52 0.14 200;
 
     /* Charts */
-    --chart-1: 0.72 0.18 168;
-    --chart-2: 0.78 0.18 75;
-    --chart-3: 0.65 0.15 250;
-    --chart-4: 0.70 0.20 140;
-    --chart-5: 0.62 0.22 25;
+    --chart-1: 0.52 0.14 200;
+    --chart-2: 0.55 0.17 145;
+    --chart-3: 0.50 0.16 240;
+    --chart-4: 0.48 0.15 280;
+    --chart-5: 0.55 0.22 25;
 
     /* Sidebar */
-    --sidebar: 0.14 0.025 210;
-    --sidebar-foreground: 0.94 0.02 190;
-    --sidebar-primary: 0.72 0.18 168;
-    --sidebar-primary-foreground: 0.08 0.02 210;
-    --sidebar-accent: 0.22 0.04 200;
-    --sidebar-accent-foreground: 0.86 0.03 185;
-    --sidebar-border: 0.28 0.04 200;
-    --sidebar-ring: 0.65 0.16 168;
+    --sidebar: 0.94 0.003 90;
+    --sidebar-foreground: 0.22 0.004 270;
+    --sidebar-primary: 0.52 0.14 200;
+    --sidebar-primary-foreground: 0.98 0.002 90;
+    --sidebar-accent: 0.90 0.004 270;
+    --sidebar-accent-foreground: 0.25 0.005 270;
+    --sidebar-border: 0.82 0.006 270;
+    --sidebar-ring: 0.52 0.14 200;
 
     /* Custom semantic tokens */
-    --success: 0.70 0.18 145;
-    --success-foreground: 0.08 0.02 210;
-    --warning: 0.78 0.18 75;
-    --warning-foreground: 0.08 0.02 210;
-    --info: 0.65 0.15 250;
-    --info-foreground: 0.97 0.01 0;
+    --success: 0.50 0.17 145;
+    --success-foreground: 0.98 0.002 90;
+    --warning: 0.60 0.16 70;
+    --warning-foreground: 0.12 0.02 70;
+    --info: 0.50 0.16 240;
+    --info-foreground: 0.98 0.002 90;
 
-    /* Glow effects */
-    --glow-primary: 0 0 40px oklch(0.72 0.18 168 / 0.25);
-    --glow-accent: 0 0 40px oklch(0.78 0.18 75 / 0.20);
+    /* Step tokens */
+    --step1: 0.52 0.14 200;
+    --step1-foreground: 0.98 0.002 90;
+    --step2: 0.52 0.14 200;
+    --step2-foreground: 0.98 0.002 90;
+
+    /* Glow effects — subtle for light theme */
+    --glow-primary: 0 0 20px oklch(0.52 0.14 200 / 0.15);
+    --glow-accent: 0 0 20px oklch(0.52 0.14 200 / 0.10);
   }
 
   * {
@@ -103,23 +109,17 @@
   }
 
   html {
-    color-scheme: dark;
+    color-scheme: light;
     scroll-behavior: smooth;
   }
 
   body {
     @apply bg-background text-foreground font-body;
-    background-image:
-      radial-gradient(
-        ellipse 80% 60% at 50% -10%,
-        oklch(0.72 0.18 168 / 0.08) 0%,
-        transparent 70%
-      ),
-      radial-gradient(
-        ellipse 50% 40% at 100% 80%,
-        oklch(0.65 0.15 250 / 0.05) 0%,
-        transparent 60%
-      );
+    background-image: radial-gradient(
+      ellipse 60% 40% at 50% 0%,
+      oklch(0.52 0.14 200 / 0.04) 0%,
+      transparent 60%
+    );
     min-height: 100vh;
   }
 
@@ -148,13 +148,13 @@
     box-shadow: var(--glow-accent);
   }
 
-  /* Text gradient */
+  /* Text gradient — unified cyan-blue range (light theme) */
   .text-gradient-primary {
     background: linear-gradient(
       135deg,
-      oklch(0.85 0.18 168) 0%,
-      oklch(0.72 0.18 145) 50%,
-      oklch(0.78 0.18 75) 100%
+      oklch(0.42 0.16 200) 0%,
+      oklch(0.52 0.14 200) 60%,
+      oklch(0.45 0.14 220) 100%
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -179,7 +179,7 @@
     border: 1px solid oklch(var(--border) / 0.6);
   }
 
-  /* Animated border */
+  /* Subtle border glow */
   .border-glow {
     position: relative;
   }
@@ -190,9 +190,9 @@
     border-radius: inherit;
     background: linear-gradient(
       135deg,
-      oklch(0.72 0.18 168 / 0.6),
-      oklch(0.65 0.15 250 / 0.3),
-      oklch(0.78 0.18 75 / 0.4)
+      oklch(0.52 0.14 200 / 0.4),
+      oklch(0.45 0.14 220 / 0.15),
+      oklch(0.52 0.14 200 / 0.25)
     );
     z-index: -1;
   }
