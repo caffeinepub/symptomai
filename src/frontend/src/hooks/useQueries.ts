@@ -26,13 +26,11 @@ export function useAnalyzeSymptoms() {
       // Run analysis locally — this always succeeds
       const result = analyzeSymptoms(symptoms);
 
-      // Attempt to persist to backend (best-effort — ignore any errors)
-      try {
-        if (actor) {
-          await actor.analyzeSymptoms(symptoms);
-        }
-      } catch {
-        // Backend call failed — silently ignore, local result is sufficient
+      // Persist to backend in the background — do NOT await, so UI is instant
+      if (actor) {
+        actor.analyzeSymptoms(symptoms).catch(() => {
+          // Backend call failed — silently ignore, local result is sufficient
+        });
       }
 
       // Build a local History object so the UI can display results immediately
