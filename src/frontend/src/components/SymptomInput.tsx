@@ -15,14 +15,17 @@ import {
   ArrowRight,
   CheckCircle2,
   ChevronRight,
+  FileImage,
   Loader2,
   Lock,
   LogIn,
   Sparkles,
+  Upload,
   User,
+  X,
 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import type { History } from "../backend.d";
 import {
@@ -33,6 +36,7 @@ import {
 } from "../hooks/useFreeUsage";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import { useAnalyzeSymptoms } from "../hooks/useQueries";
+import type { ImageData } from "../utils/geminiAnalyzer";
 import { getPatientProfile, savePatientProfile } from "../utils/patientProfile";
 
 interface SymptomInputProps {
@@ -59,6 +63,14 @@ const GENDER_OPTIONS = [
   { value: "prefer_not_to_say", label: "Prefer not to say" },
 ];
 
+const ACCEPTED_IMAGE_TYPES = [
+  "image/jpeg",
+  "image/png",
+  "image/webp",
+  "image/gif",
+];
+const MAX_FILE_SIZE_MB = 10;
+
 export default function SymptomInput({ onResult }: SymptomInputProps) {
   const [step, setStep] = useState<1 | 2>(1);
   const [patientInfo, setPatientInfo] = useState<PatientInfo>({
@@ -73,7 +85,12 @@ export default function SymptomInput({ onResult }: SymptomInputProps) {
   const [showLoginGate, setShowLoginGate] = useState(false);
 
   const [symptoms, setSymptoms] = useState("");
+  const [reportImage, setReportImage] = useState<File | null>(null);
+  const [reportPreviewUrl, setReportPreviewUrl] = useState<string | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const analyzeMutation = useAnalyzeSymptoms();
 
   const { identity, login } = useInternetIdentity();
@@ -101,6 +118,67 @@ export default function SymptomInput({ onResult }: SymptomInputProps) {
       });
     }
   }, [principalId]);
+
+  // Revoke preview URL on cleanup
+  useEffect(() => {
+    return () => {
+      if (reportPreviewUrl) URL.revokeObjectURL(reportPreviewUrl);
+    };
+  }, [reportPreviewUrl]);
+
+  // ── Image helpers ─────────────────────────────────────────────────────────
+  const handleImageFile = useCallback((file: File) => {
+    if (!ACCEPTED_IMAGE_TYPES.includes(file.type)) {
+      toast.error("Please upload a JPG, PNG, WebP, or GIF image.");
+      return;
+    }
+    if (file.size > MAX_FILE_SIZE_MB * 1024 * 1024) {
+      toast.error(`Image must be under ${MAX_FILE_SIZE_MB} MB.`);
+      return;
+    }
+    setReportImage(file);
+    setReportPreviewUrl(URL.createObjectURL(file));
+  }, []);
+
+  const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) handleImageFile(file);
+    e.target.value = "";
+  };
+
+  const handleRemoveImage = () => {
+    setReportImage(null);
+    if (reportPreviewUrl) {
+      URL.revokeObjectURL(reportPreviewUrl);
+      setReportPreviewUrl(null);
+    }
+  };
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = () => setIsDragging(false);
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+    const file = e.dataTransfer.files?.[0];
+    if (file) handleImageFile(file);
+  };
+
+  const fileToImageData = (file: File): Promise<ImageData> =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const result = reader.result as string;
+        const base64 = result.split(",")[1];
+        resolve({ base64, mimeType: file.type });
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
 
   // ── Step 1 validation ────────────────────────────────────────────────────
   const validateStep1 = () => {
@@ -139,7 +217,6 @@ export default function SymptomInput({ onResult }: SymptomInputProps) {
   const handleNext = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validateStep1()) {
-      // Save profile to localStorage if authenticated
       if (principalId) {
         savePatientProfile(principalId, {
           name: patientInfo.name,
@@ -150,7 +227,6 @@ export default function SymptomInput({ onResult }: SymptomInputProps) {
         setTimeout(() => setProfileSaved(false), 3000);
       }
 
-      // Send patient info to webhook (fire-and-forget)
       try {
         await fetch(
           "https://hook.eu1.make.com/2azx8290haxgxkrrwr5dq1yf83uetm3s",
@@ -165,42 +241,53 @@ export default function SymptomInput({ onResult }: SymptomInputProps) {
           },
         );
       } catch {
-        // Silently ignore webhook errors so the user flow is uninterrupted
+        // Silently ignore webhook errors
       }
 
       setStep(2);
     }
   };
 
-  const handleBack = () => {
-    setStep(1);
-  };
+  const handleBack = () => setStep(1);
 
   // ── Step 2 submit ─────────────────────────────────────────────────────────
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const trimmed = symptoms.trim();
-    if (!trimmed) {
-      toast.error("Please describe your symptoms first.");
+
+    if (!trimmed && !reportImage) {
+      toast.error("Please describe your symptoms or upload a report image.");
       return;
     }
-    if (trimmed.length < 10) {
+    if (trimmed && trimmed.length < 5) {
       toast.error("Please provide more detail about your symptoms.");
       return;
     }
 
-    // Check free usage limit for anonymous users
     if (!isAuthenticated && hasReachedFreeLimit()) {
       setShowLoginGate(true);
       return;
     }
 
     try {
-      const result = await analyzeMutation.mutateAsync(trimmed);
+      let imageData: ImageData | undefined;
+      if (reportImage) {
+        imageData = await fileToImageData(reportImage);
+      }
+
+      const symptomsText =
+        trimmed ||
+        "(No text symptoms provided — please analyze the uploaded report image)";
+
+      const result = await analyzeMutation.mutateAsync({
+        symptoms: symptomsText,
+        age: patientInfo.age,
+        gender: patientInfo.gender,
+        imageData,
+      });
       onResult(result);
       toast.success("Analysis complete!");
 
-      // Increment free use counter for anonymous users
       if (!isAuthenticated) {
         const newCount = incrementFreeUseCount();
         if (newCount >= FREE_USE_LIMIT) {
@@ -250,11 +337,9 @@ export default function SymptomInput({ onResult }: SymptomInputProps) {
                 exit={{ opacity: 0, scale: 0.92, y: 16 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
-                {/* Icon */}
                 <div className="mx-auto mb-5 w-16 h-16 rounded-2xl bg-primary/15 border border-primary/30 flex items-center justify-center">
                   <Lock className="w-8 h-8 text-primary" />
                 </div>
-
                 <h3 className="font-display text-xl font-semibold text-foreground mb-2">
                   Free limit reached
                 </h3>
@@ -263,7 +348,6 @@ export default function SymptomInput({ onResult }: SymptomInputProps) {
                   continue using Synapse with unlimited checks and saved
                   history.
                 </p>
-
                 <Button
                   data-ocid="login_gate.login_button"
                   onClick={login}
@@ -272,7 +356,6 @@ export default function SymptomInput({ onResult }: SymptomInputProps) {
                   <LogIn className="w-4 h-4" />
                   Login to continue
                 </Button>
-
                 <p className="mt-4 text-xs text-muted-foreground">
                   Login is free and only takes a few seconds.
                 </p>
@@ -308,7 +391,6 @@ export default function SymptomInput({ onResult }: SymptomInputProps) {
               Step {step} of 2
             </span>
 
-            {/* Free uses remaining badge */}
             {!isAuthenticated && freeUsesLeft !== null && freeUsesLeft > 0 && (
               <span className="ml-auto text-xs px-2.5 py-1 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-400 font-medium">
                 {freeUsesLeft} free{" "}
@@ -327,7 +409,6 @@ export default function SymptomInput({ onResult }: SymptomInputProps) {
                 exit={{ opacity: 0, x: -24 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               >
-                {/* Section header */}
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 rounded-xl bg-primary/12 border border-primary/25 flex items-center justify-center">
                     <User className="w-5 h-5 text-primary" />
@@ -344,7 +425,6 @@ export default function SymptomInput({ onResult }: SymptomInputProps) {
                   </div>
                 </div>
 
-                {/* Profile saved indicator */}
                 <AnimatePresence>
                   {profileSaved && (
                     <motion.div
@@ -495,7 +575,6 @@ export default function SymptomInput({ onResult }: SymptomInputProps) {
                     )}
                   </div>
 
-                  {/* Next button */}
                   <Button
                     type="submit"
                     data-ocid="patient.next_button"
@@ -514,7 +593,6 @@ export default function SymptomInput({ onResult }: SymptomInputProps) {
                 exit={{ opacity: 0, x: 24 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               >
-                {/* Section header */}
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 rounded-xl bg-primary/12 border border-primary/25 flex items-center justify-center">
                     <Sparkles className="w-5 h-5 text-primary" />
@@ -524,12 +602,11 @@ export default function SymptomInput({ onResult }: SymptomInputProps) {
                       Describe Your Symptoms
                     </h2>
                     <p className="text-sm text-muted-foreground">
-                      Be as specific as possible for better results
+                      Type your symptoms, upload a report, or both
                     </p>
                   </div>
                 </div>
 
-                {/* Personalized greeting */}
                 <motion.div
                   className="mb-5 mt-1 px-4 py-2.5 rounded-xl bg-primary/8 border border-primary/20 text-sm text-primary font-medium"
                   initial={{ opacity: 0, y: -6 }}
@@ -546,18 +623,104 @@ export default function SymptomInput({ onResult }: SymptomInputProps) {
                     <Textarea
                       ref={textareaRef}
                       data-ocid="symptom.textarea"
-                      placeholder="Describe your symptoms in detail, e.g. I have a headache, fever, and sore throat for 2 days..."
+                      placeholder="Describe your symptoms in your own words — e.g. 'I have watery balls all over my body with itching and fever' or 'burning when I pee and lower back pain'"
                       value={symptoms}
                       onChange={(e) => setSymptoms(e.target.value)}
                       disabled={isLoading}
-                      rows={5}
+                      rows={4}
                       className="resize-none bg-secondary/40 border-border/50 focus:border-primary/50 focus:ring-1 focus:ring-primary/20 placeholder:text-muted-foreground/50 text-sm leading-relaxed transition-all duration-200 rounded-xl font-body"
                       aria-label="Symptom description"
                     />
-                    {/* Character count */}
                     <div className="absolute bottom-3 right-3 text-xs font-mono text-muted-foreground/50">
                       {charCount} chars
                     </div>
+                  </div>
+
+                  {/* Report image upload */}
+                  <div className="space-y-2">
+                    <Label className="text-sm font-medium text-foreground/90 flex items-center gap-1.5">
+                      <FileImage className="w-3.5 h-3.5" />
+                      Upload Report / Photo
+                      <span className="text-xs font-normal text-muted-foreground ml-1">
+                        (optional — Gemini will read it)
+                      </span>
+                    </Label>
+
+                    <input
+                      ref={fileInputRef}
+                      type="file"
+                      accept="image/jpeg,image/png,image/webp,image/gif"
+                      onChange={handleFileInputChange}
+                      className="hidden"
+                      aria-label="Upload report image"
+                    />
+
+                    {reportImage && reportPreviewUrl ? (
+                      <motion.div
+                        data-ocid="report.dropzone"
+                        className="relative rounded-xl overflow-hidden border border-primary/30 bg-primary/5"
+                        initial={{ opacity: 0, scale: 0.96 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <img
+                          src={reportPreviewUrl}
+                          alt="Uploaded report"
+                          className="w-full max-h-56 object-contain"
+                        />
+                        <div className="absolute inset-x-0 bottom-0 px-3 py-2 bg-gradient-to-t from-black/60 to-transparent flex items-center justify-between">
+                          <span className="text-xs text-white/90 font-medium truncate max-w-[70%]">
+                            {reportImage.name}
+                          </span>
+                          <button
+                            type="button"
+                            data-ocid="report.delete_button"
+                            onClick={handleRemoveImage}
+                            disabled={isLoading}
+                            className="flex items-center gap-1 text-xs text-white/80 hover:text-white bg-black/30 hover:bg-black/50 rounded-lg px-2 py-1 transition-colors disabled:opacity-50"
+                          >
+                            <X className="w-3 h-3" />
+                            Remove
+                          </button>
+                        </div>
+                      </motion.div>
+                    ) : (
+                      <button
+                        type="button"
+                        data-ocid="report.dropzone"
+                        onClick={() => fileInputRef.current?.click()}
+                        onDragOver={handleDragOver}
+                        onDragLeave={handleDragLeave}
+                        onDrop={handleDrop}
+                        disabled={isLoading}
+                        className={`w-full flex flex-col items-center justify-center gap-2 px-4 py-6 rounded-xl border-2 border-dashed transition-all duration-200 cursor-pointer text-center disabled:opacity-50 disabled:cursor-not-allowed ${
+                          isDragging
+                            ? "border-primary bg-primary/8 scale-[1.01]"
+                            : "border-border/50 bg-secondary/20 hover:border-primary/40 hover:bg-primary/5"
+                        }`}
+                      >
+                        <Upload
+                          className={`w-6 h-6 transition-colors ${isDragging ? "text-primary" : "text-muted-foreground"}`}
+                        />
+                        <div>
+                          <p className="text-sm font-medium text-foreground/80">
+                            {isDragging
+                              ? "Drop your image here"
+                              : "Click to upload or drag & drop"}
+                          </p>
+                          <p className="text-xs text-muted-foreground mt-0.5">
+                            JPG, PNG, WebP, GIF · max {MAX_FILE_SIZE_MB} MB
+                          </p>
+                        </div>
+                      </button>
+                    )}
+
+                    {reportImage && (
+                      <p className="text-xs text-primary/70 flex items-center gap-1">
+                        <CheckCircle2 className="w-3 h-3" />
+                        Gemini will analyze this report alongside your symptoms
+                      </p>
+                    )}
                   </div>
 
                   {/* Error state */}
@@ -582,7 +745,6 @@ export default function SymptomInput({ onResult }: SymptomInputProps) {
 
                   {/* Action row */}
                   <div className="flex flex-col-reverse sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3">
-                    {/* Back button */}
                     <button
                       type="button"
                       data-ocid="patient.back_button"
@@ -594,18 +756,17 @@ export default function SymptomInput({ onResult }: SymptomInputProps) {
                       Back
                     </button>
 
-                    {/* Submit button */}
                     <Button
                       type="submit"
                       data-ocid="symptom.submit_button"
-                      disabled={isLoading || !symptoms.trim()}
+                      disabled={isLoading || (!symptoms.trim() && !reportImage)}
                       className="flex-1 sm:flex-none px-8 py-3 h-12 rounded-xl font-medium text-sm bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-glow"
                     >
                       {isLoading ? (
                         <>
                           <Loader2 className="mr-2 w-4 h-4 animate-spin" />
                           <span data-ocid="symptom.loading_state">
-                            Analyzing…
+                            AI Analyzing…
                           </span>
                         </>
                       ) : (

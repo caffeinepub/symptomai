@@ -2918,6 +2918,2993 @@ const CONDITIONS: ConditionDefinition[] = [
     precautions:
       "1. Move to cool area immediately.\n2. Drink cool water slowly.\n3. Apply cool wet cloths.\n4. Remove excess clothing.\n5. Seek emergency care if confusion or very high temperature develops.",
   },
+
+  // ── CANCER (COMMON RECOGNIZABLE SYMPTOM PATTERNS) ──────────────────────────
+  {
+    name: "Lung Cancer",
+    pathognomonicKeywords: [
+      "lung cancer",
+      "pulmonary malignancy",
+      "hemoptysis persistent",
+    ],
+    primaryKeywords: [
+      "cough worsening weeks",
+      "blood in cough persistent",
+      "unexplained weight loss cough",
+    ],
+    secondaryKeywords: [
+      "persistent cough",
+      "chest pain",
+      "shortness of breath",
+      "hoarseness",
+      "fatigue",
+      "unexplained weight loss",
+    ],
+    negativeKeywords: [],
+    clusters: [
+      ["persistent cough", "blood in cough", "weight loss"],
+      ["chest pain", "shortness of breath", "fatigue"],
+    ],
+    cause:
+      "Most commonly caused by long-term smoking. Other causes include radon gas, asbestos, and air pollution.",
+    precautions:
+      "1. Seek immediate medical evaluation and imaging.\n2. Do not ignore persistent cough lasting over 3 weeks.\n3. Stop smoking immediately.\n4. Follow prescribed treatment plan.\n5. Attend all follow-up appointments.",
+  },
+  {
+    name: "Breast Cancer",
+    pathognomonicKeywords: [
+      "breast cancer",
+      "breast lump",
+      "nipple discharge blood",
+      "breast mass",
+    ],
+    primaryKeywords: [
+      "lump in breast",
+      "breast skin dimpling",
+      "nipple inversion",
+    ],
+    secondaryKeywords: [
+      "breast pain",
+      "swollen armpit",
+      "breast swelling",
+      "skin changes breast",
+    ],
+    negativeKeywords: [],
+    clusters: [
+      ["breast lump", "skin changes breast"],
+      ["nipple discharge", "armpit swelling"],
+    ],
+    cause:
+      "Caused by abnormal cell growth in breast tissue, influenced by hormones, genetics (BRCA1/2), and lifestyle factors.",
+    precautions:
+      "1. Seek immediate medical evaluation.\n2. Perform monthly self-breast exams.\n3. Attend regular mammograms.\n4. Follow prescribed treatment.\n5. Genetic counseling if family history present.",
+  },
+  {
+    name: "Colorectal Cancer",
+    pathognomonicKeywords: [
+      "colorectal cancer",
+      "colon cancer",
+      "rectal cancer",
+      "bowel cancer",
+    ],
+    primaryKeywords: [
+      "rectal bleeding persistent",
+      "change in bowel habits weeks",
+      "pencil thin stool",
+    ],
+    secondaryKeywords: [
+      "blood in stool",
+      "abdominal pain",
+      "weight loss",
+      "fatigue",
+      "constipation",
+      "diarrhea",
+    ],
+    negativeKeywords: [],
+    clusters: [["rectal bleeding", "change in bowel habits", "weight loss"]],
+    cause:
+      "Caused by abnormal cell growth in the colon or rectum. Risk: age, family history, polyps, inflammatory bowel disease.",
+    precautions:
+      "1. Seek immediate colonoscopy evaluation.\n2. Regular screening from age 45.\n3. Follow high-fiber, low-red-meat diet.\n4. Maintain healthy weight.\n5. Follow prescribed treatment plan.",
+  },
+  {
+    name: "Cervical Cancer",
+    pathognomonicKeywords: [
+      "cervical cancer",
+      "abnormal pap smear",
+      "hpv cervical",
+    ],
+    primaryKeywords: [
+      "abnormal vaginal bleeding",
+      "bleeding after intercourse",
+      "watery vaginal discharge",
+    ],
+    secondaryKeywords: ["pelvic pain", "lower back pain", "leg swelling"],
+    negativeKeywords: [],
+    clusters: [["abnormal vaginal bleeding", "pelvic pain"]],
+    cause:
+      "Caused by persistent infection with high-risk HPV strains. Detected early through Pap smears.",
+    precautions:
+      "1. Get regular Pap smears.\n2. Get HPV vaccination.\n3. Report any abnormal bleeding to a doctor.\n4. Follow prescribed treatment.\n5. Avoid smoking.",
+  },
+  {
+    name: "Leukemia",
+    pathognomonicKeywords: [
+      "leukemia",
+      "blood cancer",
+      "white blood cell cancer",
+      "bone marrow cancer",
+    ],
+    primaryKeywords: [
+      "easy bruising",
+      "frequent infections",
+      "bone pain severe",
+      "swollen lymph nodes painless",
+    ],
+    secondaryKeywords: [
+      "fatigue extreme",
+      "pale skin",
+      "unexplained weight loss",
+      "fever recurrent",
+      "bleeding gums",
+    ],
+    negativeKeywords: [],
+    clusters: [
+      ["easy bruising", "frequent infections", "bone pain"],
+      ["fatigue", "pale skin", "recurrent fever"],
+    ],
+    cause:
+      "Caused by abnormal white blood cell production in bone marrow. Risk: radiation, genetic disorders, certain chemicals.",
+    precautions:
+      "1. Seek immediate hematology evaluation.\n2. Complete prescribed chemotherapy or targeted therapy.\n3. Avoid infections — maintain strict hygiene.\n4. Monitor blood counts regularly.\n5. Consider bone marrow transplant if recommended.",
+  },
+
+  // ── ADDITIONAL INFECTIOUS DISEASES ─────────────────────────────────────────
+  {
+    name: "Chickungunya",
+    pathognomonicKeywords: [
+      "chikungunya",
+      "joint pain fever mosquito",
+      "debilitating joint pain",
+    ],
+    primaryKeywords: [
+      "severe joint pain both sides",
+      "sudden high fever joint pain",
+    ],
+    secondaryKeywords: [
+      "fever",
+      "rash",
+      "joint pain",
+      "muscle pain",
+      "headache",
+      "fatigue",
+    ],
+    negativeKeywords: [],
+    clusters: [["sudden fever", "severe joint pain", "rash"]],
+    cause:
+      "Caused by chikungunya virus transmitted by Aedes mosquitoes. Common in tropical regions.",
+    precautions:
+      "1. Rest and drink fluids.\n2. Take acetaminophen for pain — avoid aspirin and ibuprofen.\n3. Use mosquito repellent.\n4. Eliminate standing water around home.\n5. Joint pain may persist weeks to months.",
+  },
+  {
+    name: "Zika Virus",
+    pathognomonicKeywords: ["zika", "zika virus", "zika fever"],
+    primaryKeywords: ["mild fever rash joint pain", "red eye fever rash"],
+    secondaryKeywords: [
+      "fever",
+      "rash",
+      "joint pain",
+      "red eye",
+      "headache",
+      "muscle pain",
+    ],
+    negativeKeywords: [],
+    clusters: [["fever", "rash", "red eye", "joint pain"]],
+    cause:
+      "Caused by Zika virus transmitted by Aedes mosquitoes. Can cause severe birth defects if contracted during pregnancy.",
+    precautions:
+      "1. Pregnant women must avoid areas with Zika transmission.\n2. Use mosquito repellent.\n3. Practice safe sex during and after travel.\n4. Rest and stay hydrated.\n5. Report to doctor immediately if pregnant and exposed.",
+  },
+  {
+    name: "Ebola",
+    pathognomonicKeywords: [
+      "ebola",
+      "ebola virus",
+      "hemorrhagic fever",
+      "bleeding from orifices",
+    ],
+    primaryKeywords: [
+      "sudden high fever weakness vomiting",
+      "internal bleeding",
+      "bloody diarrhea sudden severe",
+    ],
+    secondaryKeywords: [
+      "high fever",
+      "vomiting",
+      "diarrhea",
+      "rash",
+      "bleeding",
+    ],
+    negativeKeywords: [],
+    clusters: [["high fever", "vomiting", "internal bleeding"]],
+    cause:
+      "Caused by Ebola virus, spread through direct contact with blood or body fluids of infected persons or animals.",
+    precautions:
+      "1. Seek emergency isolation and medical care immediately.\n2. Avoid contact with infected individuals.\n3. Supportive care includes fluids and treating infections.\n4. Contact tracing of all exposed individuals.\n5. Follow health authority guidelines strictly.",
+  },
+  {
+    name: "Yellow Fever",
+    pathognomonicKeywords: [
+      "yellow fever",
+      "jaundice fever mosquito",
+      "hemorrhagic jaundice fever",
+    ],
+    primaryKeywords: ["fever jaundice bleeding"],
+    secondaryKeywords: [
+      "high fever",
+      "jaundice",
+      "headache",
+      "muscle aches",
+      "vomiting",
+      "bleeding",
+    ],
+    negativeKeywords: [],
+    clusters: [["fever", "jaundice", "bleeding"]],
+    cause:
+      "Caused by yellow fever virus transmitted by Aedes and Haemagogus mosquitoes in tropical Africa and South America.",
+    precautions:
+      "1. Get yellow fever vaccination before travel.\n2. Use mosquito repellent and bed nets.\n3. Seek immediate medical care.\n4. Supportive treatment for organ failure.\n5. Hospitalization for severe cases.",
+  },
+  {
+    name: "Monkeypox",
+    pathognomonicKeywords: [
+      "monkeypox",
+      "mpox",
+      "pox rash lymph nodes",
+      "monkeypox rash",
+    ],
+    primaryKeywords: [
+      "rash starts face spreads body",
+      "swollen lymph nodes rash",
+      "pox lesions",
+    ],
+    secondaryKeywords: [
+      "fever",
+      "rash",
+      "swollen lymph nodes",
+      "headache",
+      "muscle aches",
+      "fluid filled blisters",
+    ],
+    negativeKeywords: [],
+    clusters: [["rash", "swollen lymph nodes", "fever"]],
+    cause:
+      "Caused by monkeypox virus, spread through close contact with infected person, animal, or contaminated material.",
+    precautions:
+      "1. Isolate and seek medical care.\n2. Cover rash with clean dressing.\n3. Avoid contact with immunocompromised individuals.\n4. Practice good hand hygiene.\n5. Smallpox vaccine provides cross-protection.",
+  },
+  {
+    name: "Typhus",
+    pathognomonicKeywords: [
+      "typhus",
+      "rickettsia",
+      "louse-borne fever",
+      "tick fever typhus",
+    ],
+    primaryKeywords: ["fever rash lice", "sudden high fever rash trunk"],
+    secondaryKeywords: [
+      "high fever",
+      "headache",
+      "rash",
+      "muscle pain",
+      "confusion",
+    ],
+    negativeKeywords: [],
+    clusters: [["sudden fever", "rash", "headache"]],
+    cause:
+      "Caused by Rickettsia bacteria transmitted by lice, fleas, or ticks. Associated with poor hygiene conditions.",
+    precautions:
+      "1. Take prescribed doxycycline antibiotics.\n2. Eliminate lice, fleas, or ticks.\n3. Improve hygiene and sanitation.\n4. Wash clothes and bedding in hot water.\n5. Seek hospitalization for severe cases.",
+  },
+  {
+    name: "Plague",
+    pathognomonicKeywords: [
+      "plague",
+      "bubonic plague",
+      "swollen lymph node groin armpit sudden fever",
+      "bubo",
+    ],
+    primaryKeywords: [
+      "large painful swollen lymph node fever",
+      "sudden high fever bubo",
+    ],
+    secondaryKeywords: [
+      "high fever",
+      "chills",
+      "weakness",
+      "swollen lymph nodes",
+      "headache",
+    ],
+    negativeKeywords: [],
+    clusters: [["sudden fever", "large swollen lymph node"]],
+    cause:
+      "Caused by Yersinia pestis bacteria, transmitted by fleas from rodents.",
+    precautions:
+      "1. Seek emergency medical care.\n2. Take prescribed antibiotics immediately.\n3. Isolate the patient.\n4. Report to health authorities.\n5. Contact tracing of all exposed individuals.",
+  },
+  {
+    name: "Tetanus",
+    pathognomonicKeywords: [
+      "tetanus",
+      "jaw locked",
+      "lockjaw",
+      "muscle spasms wound",
+    ],
+    primaryKeywords: [
+      "jaw stiffness",
+      "neck stiffness spasm",
+      "muscle stiffness after wound",
+    ],
+    secondaryKeywords: [
+      "muscle stiffness",
+      "spasms",
+      "difficulty swallowing",
+      "fever",
+    ],
+    negativeKeywords: [],
+    clusters: [["jaw stiffness", "muscle spasms", "neck stiffness"]],
+    cause:
+      "Caused by toxin produced by Clostridium tetani bacteria entering through wounds.",
+    precautions:
+      "1. Seek emergency care immediately.\n2. Ensure tetanus vaccination is up to date.\n3. Clean all wounds thoroughly.\n4. Tetanus immune globulin may be administered.\n5. Hospitalization required for treatment.",
+  },
+  {
+    name: "Diphtheria",
+    pathognomonicKeywords: [
+      "diphtheria",
+      "grey membrane throat",
+      "thick coating throat",
+      "bull neck",
+    ],
+    primaryKeywords: ["grey throat coating", "thick membrane tonsils"],
+    secondaryKeywords: [
+      "sore throat",
+      "fever",
+      "swollen neck",
+      "difficulty swallowing",
+      "hoarseness",
+    ],
+    negativeKeywords: [],
+    clusters: [["sore throat", "grey membrane throat", "swollen neck"]],
+    cause:
+      "Caused by Corynebacterium diphtheriae bacteria, spread through respiratory droplets.",
+    precautions:
+      "1. Seek emergency care.\n2. Administer diphtheria antitoxin.\n3. Take prescribed antibiotics.\n4. Isolate patient strictly.\n5. Ensure DTP vaccination is up to date.",
+  },
+  {
+    name: "Polio",
+    pathognomonicKeywords: [
+      "polio",
+      "poliomyelitis",
+      "paralysis in child fever",
+      "limb weakness fever child",
+    ],
+    primaryKeywords: ["sudden limb weakness", "one limb weakness fever"],
+    secondaryKeywords: [
+      "fever",
+      "muscle weakness",
+      "paralysis",
+      "headache",
+      "stiff neck",
+    ],
+    negativeKeywords: [],
+    clusters: [["sudden weakness", "fever", "limb paralysis"]],
+    cause:
+      "Caused by poliovirus, spread through contaminated water or food. Largely eradicated through vaccination.",
+    precautions:
+      "1. Ensure full polio vaccination.\n2. Practice strict hand hygiene.\n3. Seek immediate medical care for any sudden limb weakness.\n4. Physiotherapy for affected limbs.\n5. Report suspected cases to health authorities.",
+  },
+  {
+    name: "Anthrax",
+    pathognomonicKeywords: [
+      "anthrax",
+      "black eschar skin",
+      "black painless skin lesion",
+      "cutaneous anthrax",
+    ],
+    primaryKeywords: ["painless black skin ulcer", "skin lesion black center"],
+    secondaryKeywords: ["fever", "skin lesion", "swelling", "fatigue"],
+    negativeKeywords: [],
+    clusters: [["black skin ulcer", "fever", "swelling"]],
+    cause:
+      "Caused by Bacillus anthracis spores entering through skin, inhalation, or ingestion. Associated with livestock contact.",
+    precautions:
+      "1. Seek immediate medical care.\n2. Take prescribed antibiotics (ciprofloxacin).\n3. Report to health authorities — potential bioterrorism agent.\n4. Avoid contact with infected animals or products.\n5. Anthrax vaccine for at-risk individuals.",
+  },
+  {
+    name: "Brucellosis",
+    pathognomonicKeywords: [
+      "brucellosis",
+      "undulant fever",
+      "fever from animals",
+      "animal contact fever",
+    ],
+    primaryKeywords: [
+      "fluctuating fever weeks",
+      "joint pain fever after animal contact",
+    ],
+    secondaryKeywords: [
+      "fever",
+      "fatigue",
+      "joint pain",
+      "sweating",
+      "back pain",
+      "loss of appetite",
+    ],
+    negativeKeywords: [],
+    clusters: [["fever", "joint pain", "animal contact"]],
+    cause:
+      "Caused by Brucella bacteria from infected animals or unpasteurized dairy products.",
+    precautions:
+      "1. Take prescribed antibiotic combination therapy.\n2. Avoid unpasteurized dairy products.\n3. Use protective equipment when handling animals.\n4. Boil or pasteurize milk.\n5. Regular follow-up to prevent relapse.",
+  },
+  {
+    name: "Schistosomiasis",
+    pathognomonicKeywords: [
+      "schistosomiasis",
+      "bilharzia",
+      "blood in urine after swimming africa",
+    ],
+    primaryKeywords: [
+      "blood in urine after freshwater swimming",
+      "liver spleen enlargement",
+    ],
+    secondaryKeywords: [
+      "fever",
+      "rash",
+      "abdominal pain",
+      "blood in urine",
+      "fatigue",
+    ],
+    negativeKeywords: [],
+    clusters: [["blood in urine", "freshwater swimming", "fever"]],
+    cause:
+      "Caused by Schistosoma parasites in freshwater contaminated with human feces.",
+    precautions:
+      "1. Take prescribed praziquantel.\n2. Avoid swimming in freshwater in endemic areas.\n3. Use safe water sources.\n4. Regular monitoring for organ damage.\n5. Mass drug administration in endemic areas.",
+  },
+  {
+    name: "Leishmaniasis",
+    pathognomonicKeywords: [
+      "leishmaniasis",
+      "kala-azar",
+      "sandfly fever non-healing ulcer",
+    ],
+    primaryKeywords: ["non-healing skin ulcer", "enlarged spleen liver fever"],
+    secondaryKeywords: [
+      "fever",
+      "weight loss",
+      "fatigue",
+      "skin ulcer",
+      "swollen lymph nodes",
+    ],
+    negativeKeywords: [],
+    clusters: [["non-healing ulcer", "fever", "weight loss"]],
+    cause:
+      "Caused by Leishmania parasites transmitted by sandfly bites. Common in tropical and subtropical regions.",
+    precautions:
+      "1. Seek immediate medical care and diagnosis.\n2. Take prescribed antiparasitic medications.\n3. Use sandfly repellent and bed nets.\n4. Avoid outdoor activities at peak sandfly times.\n5. Regular monitoring of organ function.",
+  },
+  {
+    name: "Trypanosomiasis (Sleeping Sickness)",
+    pathognomonicKeywords: [
+      "sleeping sickness",
+      "trypanosomiasis",
+      "tsetse fly fever",
+      "excessive sleeping fever africa",
+    ],
+    primaryKeywords: [
+      "extreme daytime sleepiness fever",
+      "confused drowsy fever",
+    ],
+    secondaryKeywords: [
+      "fever",
+      "headache",
+      "fatigue",
+      "confusion",
+      "swollen lymph nodes",
+    ],
+    negativeKeywords: [],
+    clusters: [["excessive sleepiness", "confusion", "fever"]],
+    cause:
+      "Caused by Trypanosoma parasites transmitted by tsetse flies in sub-Saharan Africa.",
+    precautions:
+      "1. Seek immediate medical care.\n2. Take prescribed antiparasitic medications.\n3. Avoid tsetse fly habitats.\n4. Use insect repellent and protective clothing.\n5. Report to health authorities.",
+  },
+
+  // ── RESPIRATORY (ADDITIONAL) ─────────────────────────────────────────────────
+  {
+    name: "Pulmonary Embolism",
+    pathognomonicKeywords: [
+      "pulmonary embolism",
+      "blood clot lung",
+      "pe lung clot",
+    ],
+    primaryKeywords: [
+      "sudden shortness of breath chest pain",
+      "coughing blood sudden breathlessness",
+    ],
+    secondaryKeywords: [
+      "shortness of breath",
+      "chest pain",
+      "rapid heartbeat",
+      "blood in cough",
+      "leg swelling",
+    ],
+    negativeKeywords: [],
+    clusters: [["sudden shortness of breath", "chest pain", "blood in cough"]],
+    cause:
+      "A blood clot travels to the lungs, typically from a deep vein in the leg (DVT).",
+    precautions:
+      "1. SEEK EMERGENCY CARE IMMEDIATELY.\n2. Take prescribed anticoagulants.\n3. Move regularly during long trips.\n4. Wear compression stockings.\n5. Treat underlying DVT.",
+  },
+  {
+    name: "COPD (Chronic Obstructive Pulmonary Disease)",
+    pathognomonicKeywords: [
+      "copd",
+      "emphysema",
+      "chronic obstructive",
+      "barrel chest",
+    ],
+    primaryKeywords: [
+      "chronic cough smoker",
+      "worsening breathlessness years",
+      "productive morning cough",
+    ],
+    secondaryKeywords: [
+      "shortness of breath",
+      "chronic cough",
+      "wheezing",
+      "fatigue",
+      "mucus",
+    ],
+    negativeKeywords: [],
+    clusters: [["chronic cough", "shortness of breath", "smoking history"]],
+    cause:
+      "Caused by long-term irritant exposure, most commonly cigarette smoke, causing irreversible airway damage.",
+    precautions:
+      "1. Stop smoking immediately.\n2. Use prescribed bronchodilators and steroids.\n3. Pursue pulmonary rehabilitation.\n4. Get pneumococcal and flu vaccines.\n5. Avoid air pollutants.",
+  },
+  {
+    name: "Pleural Effusion",
+    pathognomonicKeywords: [
+      "pleural effusion",
+      "fluid around lung",
+      "water on lungs",
+    ],
+    primaryKeywords: [
+      "one side chest heaviness breathing",
+      "breathlessness lying flat",
+    ],
+    secondaryKeywords: [
+      "shortness of breath",
+      "chest pain",
+      "dry cough",
+      "fever",
+    ],
+    negativeKeywords: [],
+    clusters: [["shortness of breath", "one side chest pain"]],
+    cause:
+      "Caused by heart failure, pneumonia, cancer, tuberculosis, or liver disease causing fluid to accumulate around lungs.",
+    precautions:
+      "1. Seek medical evaluation immediately.\n2. Treat the underlying cause.\n3. Thoracentesis to drain fluid if needed.\n4. Monitor for recurrence.\n5. Regular follow-up imaging.",
+  },
+  {
+    name: "Lung Abscess",
+    pathognomonicKeywords: [
+      "lung abscess",
+      "foul smelling sputum cough",
+      "pus cough cavity lung",
+    ],
+    primaryKeywords: [
+      "coughing foul smelling phlegm",
+      "chest pain high fever cough",
+    ],
+    secondaryKeywords: [
+      "fever",
+      "productive cough",
+      "weight loss",
+      "night sweats",
+      "fatigue",
+    ],
+    negativeKeywords: [],
+    clusters: [["foul sputum", "fever", "chest pain"]],
+    cause:
+      "Caused by bacterial infection creating a pus-filled cavity in the lung, often following aspiration pneumonia.",
+    precautions:
+      "1. Seek immediate medical care.\n2. Take prolonged antibiotic therapy.\n3. Postural drainage may be recommended.\n4. Surgical drainage if antibiotics fail.\n5. Follow up with imaging.",
+  },
+  {
+    name: "Allergic Rhinitis (Hay Fever)",
+    pathognomonicKeywords: [
+      "allergic rhinitis",
+      "hay fever",
+      "seasonal allergy nose",
+      "pollen allergy",
+    ],
+    primaryKeywords: ["sneezing runny nose allergy", "itchy nose eyes pollen"],
+    secondaryKeywords: [
+      "runny nose",
+      "sneezing",
+      "itchy eyes",
+      "nasal congestion",
+      "watery eyes",
+    ],
+    negativeKeywords: ["fever", "body aches"],
+    clusters: [["sneezing", "runny nose", "itchy eyes"]],
+    cause:
+      "Immune system overreaction to airborne allergens like pollen, dust mites, or animal dander.",
+    precautions:
+      "1. Take antihistamines.\n2. Use nasal corticosteroid sprays.\n3. Avoid known allergens.\n4. Keep windows closed during high pollen season.\n5. Consider immunotherapy (allergy shots).",
+  },
+
+  // ── GASTROINTESTINAL (ADDITIONAL) ────────────────────────────────────────────
+  {
+    name: "Ulcerative Colitis",
+    pathognomonicKeywords: [
+      "ulcerative colitis",
+      "bloody diarrhea chronic colitis",
+      "uc bowel",
+    ],
+    primaryKeywords: [
+      "blood mucus diarrhea",
+      "urgent diarrhea blood",
+      "rectal bleeding diarrhea",
+    ],
+    secondaryKeywords: [
+      "abdominal pain",
+      "diarrhea",
+      "rectal bleeding",
+      "fatigue",
+      "weight loss",
+    ],
+    negativeKeywords: [],
+    clusters: [["bloody diarrhea", "abdominal cramping", "urgency"]],
+    cause:
+      "Autoimmune inflammatory bowel disease affecting the colon lining. Exact cause unknown.",
+    precautions:
+      "1. Take prescribed aminosalicylates and immunosuppressants.\n2. Avoid known trigger foods.\n3. Regular colonoscopy.\n4. Manage stress.\n5. Work with a gastroenterologist.",
+  },
+  {
+    name: "Celiac Disease",
+    pathognomonicKeywords: [
+      "celiac disease",
+      "gluten intolerance celiac",
+      "wheat allergy intestine",
+    ],
+    primaryKeywords: [
+      "diarrhea after gluten wheat",
+      "bloating after bread pasta",
+    ],
+    secondaryKeywords: [
+      "diarrhea",
+      "bloating",
+      "fatigue",
+      "weight loss",
+      "abdominal pain",
+      "anemia",
+    ],
+    negativeKeywords: [],
+    clusters: [["diarrhea", "bloating", "after wheat bread"]],
+    cause: "Autoimmune reaction to gluten damaging the small intestine lining.",
+    precautions:
+      "1. Follow strict gluten-free diet.\n2. Read all food labels carefully.\n3. Work with a dietitian.\n4. Take prescribed supplements.\n5. Regular monitoring of nutritional deficiencies.",
+  },
+  {
+    name: "Pancreatitis",
+    pathognomonicKeywords: [
+      "pancreatitis",
+      "pancreas inflammation",
+      "upper abdominal pain radiating back",
+    ],
+    primaryKeywords: [
+      "severe upper abdominal pain radiates back",
+      "pain worse after fatty food",
+    ],
+    secondaryKeywords: [
+      "nausea",
+      "vomiting",
+      "abdominal pain",
+      "fever",
+      "loss of appetite",
+    ],
+    negativeKeywords: [],
+    clusters: [
+      ["severe upper abdominal pain", "radiating back pain", "nausea"],
+    ],
+    cause:
+      "Caused by gallstones, excessive alcohol, or high triglycerides causing pancreatic enzyme self-digestion.",
+    precautions:
+      "1. Seek emergency care for severe cases.\n2. Fast to rest the pancreas.\n3. IV fluids and pain management in hospital.\n4. Avoid alcohol completely.\n5. Low-fat diet after recovery.",
+  },
+  {
+    name: "Gallstones / Gallbladder Disease",
+    pathognomonicKeywords: [
+      "gallstones",
+      "cholelithiasis",
+      "gallbladder attack",
+      "biliary colic",
+    ],
+    primaryKeywords: [
+      "right upper abdomen pain after fatty food",
+      "pain below right rib cage",
+    ],
+    secondaryKeywords: [
+      "nausea",
+      "vomiting",
+      "pain after eating",
+      "bloating",
+      "jaundice",
+    ],
+    negativeKeywords: [],
+    clusters: [["right upper abdomen pain", "after fatty food", "nausea"]],
+    cause:
+      "Caused by bile becoming concentrated and forming crystals/stones in the gallbladder.",
+    precautions:
+      "1. Seek medical evaluation for diagnosis.\n2. Low-fat diet to reduce attacks.\n3. Cholecystectomy (gallbladder removal) is curative.\n4. Avoid fasting — eat regular meals.\n5. Maintain healthy weight.",
+  },
+  {
+    name: "Hepatitis C",
+    pathognomonicKeywords: ["hepatitis c", "hep c", "hcv", "silent hepatitis"],
+    primaryKeywords: [
+      "jaundice intravenous drug",
+      "liver inflammation blood contact",
+    ],
+    secondaryKeywords: [
+      "jaundice",
+      "fatigue",
+      "abdominal pain",
+      "dark urine",
+      "nausea",
+    ],
+    negativeKeywords: [],
+    clusters: [["jaundice", "fatigue", "dark urine"]],
+    cause:
+      "Caused by hepatitis C virus, primarily spread through blood-to-blood contact (shared needles, transfusions).",
+    precautions:
+      "1. Get tested — highly curable with modern antivirals.\n2. Take prescribed direct-acting antivirals.\n3. Avoid alcohol.\n4. Never share needles.\n5. Regular liver monitoring.",
+  },
+  {
+    name: "Rectal Prolapse / Hemorrhoids",
+    pathognomonicKeywords: [
+      "hemorrhoids",
+      "piles",
+      "rectal prolapse",
+      "anal bleeding painless",
+    ],
+    primaryKeywords: [
+      "bright red blood after toilet",
+      "itching around anus",
+      "pain sitting",
+    ],
+    secondaryKeywords: [
+      "rectal bleeding",
+      "anal itching",
+      "pain sitting",
+      "protrusion anus",
+    ],
+    negativeKeywords: [],
+    clusters: [["bright red blood toilet", "anal itching", "pain sitting"]],
+    cause:
+      "Hemorrhoids: swollen veins in rectum/anus from straining, constipation, or pregnancy.",
+    precautions:
+      "1. Increase fiber and water intake.\n2. Avoid straining during bowel movements.\n3. Use prescribed topical creams.\n4. Sitz baths for comfort.\n5. Surgery for severe prolapsed hemorrhoids.",
+  },
+
+  // ── NEUROLOGICAL (ADDITIONAL) ──────────────────────────────────────────────
+  {
+    name: "Parkinson's Disease",
+    pathognomonicKeywords: [
+      "parkinson",
+      "parkinson's disease",
+      "tremor at rest",
+      "shuffling walk",
+    ],
+    primaryKeywords: [
+      "resting tremor",
+      "slow movement",
+      "muscle rigidity",
+      "shuffling gait",
+    ],
+    secondaryKeywords: [
+      "tremor",
+      "stiffness",
+      "balance problems",
+      "soft voice",
+      "small handwriting",
+    ],
+    negativeKeywords: [],
+    clusters: [["resting tremor", "slow movement", "shuffling walk"]],
+    cause:
+      "Caused by loss of dopamine-producing neurons in the brain. Exact cause unknown but genetic and environmental factors play a role.",
+    precautions:
+      "1. Take prescribed levodopa and dopamine agonists.\n2. Regular physical and occupational therapy.\n3. Balance and strength exercises.\n4. Deep brain stimulation for advanced cases.\n5. Attend regular neurology appointments.",
+  },
+  {
+    name: "Alzheimer's Disease",
+    pathognomonicKeywords: [
+      "alzheimer",
+      "dementia",
+      "memory loss progressive",
+      "forgetting family",
+    ],
+    primaryKeywords: [
+      "progressive memory loss",
+      "confusion familiar places",
+      "forgetting words sentences",
+    ],
+    secondaryKeywords: [
+      "memory problems",
+      "confusion",
+      "behavior changes",
+      "getting lost",
+      "personality change",
+    ],
+    negativeKeywords: [],
+    clusters: [["progressive memory loss", "confusion", "personality change"]],
+    cause:
+      "Caused by abnormal protein deposits (amyloid plaques, tau tangles) disrupting brain cell communication.",
+    precautions:
+      "1. Consult a neurologist for evaluation.\n2. Take prescribed cholinesterase inhibitors.\n3. Maintain a safe home environment.\n4. Engage in cognitive exercises.\n5. Support groups for caregivers.",
+  },
+  {
+    name: "Multiple Sclerosis (MS)",
+    pathognomonicKeywords: [
+      "multiple sclerosis",
+      "ms",
+      "demyelinating disease",
+      "optic neuritis",
+    ],
+    primaryKeywords: [
+      "vision loss one eye",
+      "tingling one side body",
+      "muscle weakness episodes",
+    ],
+    secondaryKeywords: [
+      "fatigue",
+      "numbness",
+      "tingling sensation",
+      "balance problems",
+      "bladder problems",
+      "muscle weakness",
+    ],
+    negativeKeywords: [],
+    clusters: [["vision problems", "numbness one side", "fatigue"]],
+    cause:
+      "Autoimmune disease where the immune system attacks the myelin sheath covering nerve fibers.",
+    precautions:
+      "1. Take prescribed disease-modifying therapies.\n2. Physical and occupational therapy.\n3. Manage fatigue with pacing techniques.\n4. Stay cool — heat worsens symptoms.\n5. Regular MRI monitoring.",
+  },
+  {
+    name: "Bell's Palsy",
+    pathognomonicKeywords: [
+      "bell's palsy",
+      "facial palsy",
+      "one side face drooping sudden no stroke",
+      "face weakness",
+    ],
+    primaryKeywords: [
+      "sudden face weakness one side",
+      "cannot close eye fully",
+    ],
+    secondaryKeywords: [
+      "facial drooping",
+      "eye tearing",
+      "drooling",
+      "taste changes",
+      "ear pain",
+    ],
+    negativeKeywords: ["arm weakness", "speech difficulty"],
+    clusters: [["sudden face weakness", "cannot close eye"]],
+    cause:
+      "Caused by inflammation of the facial nerve, often triggered by viral infections (herpes simplex).",
+    precautions:
+      "1. Start steroids within 72 hours for best recovery.\n2. Eye drops to prevent corneal damage.\n3. Tape eye closed at night.\n4. Facial exercises under guidance.\n5. Most cases recover fully within months.",
+  },
+  {
+    name: "Trigeminal Neuralgia",
+    pathognomonicKeywords: [
+      "trigeminal neuralgia",
+      "electric shock face pain",
+      "stabbing face pain seconds",
+    ],
+    primaryKeywords: [
+      "sudden electric shock face pain",
+      "triggered by chewing face pain",
+    ],
+    secondaryKeywords: ["face pain", "jaw pain", "cheek pain", "pain eating"],
+    negativeKeywords: [],
+    clusters: [["sudden severe face pain", "triggered by touch chewing"]],
+    cause:
+      "Caused by irritation of the trigeminal nerve, often by a blood vessel pressing on it.",
+    precautions:
+      "1. Take prescribed carbamazepine or other anticonvulsants.\n2. Avoid triggers: wind, chewing, brushing teeth.\n3. Surgery (microvascular decompression) for severe cases.\n4. Gamma knife radiosurgery is an option.\n5. Regular neurologist follow-up.",
+  },
+  {
+    name: "Restless Leg Syndrome",
+    pathognomonicKeywords: [
+      "restless leg syndrome",
+      "rls",
+      "legs need to move night",
+      "crawling sensation legs",
+    ],
+    primaryKeywords: [
+      "urge to move legs night",
+      "uncomfortable leg sensation night",
+    ],
+    secondaryKeywords: [
+      "leg discomfort",
+      "sleep problems",
+      "leg tingling",
+      "leg cramping night",
+    ],
+    negativeKeywords: [],
+    clusters: [["urge to move legs", "night discomfort", "sleep problems"]],
+    cause:
+      "Caused by abnormal dopamine signaling. Risk: iron deficiency, kidney failure, pregnancy.",
+    precautions:
+      "1. Take prescribed dopamine agonists or iron supplements.\n2. Massage legs before bed.\n3. Regular moderate exercise.\n4. Avoid caffeine and alcohol.\n5. Maintain a regular sleep schedule.",
+  },
+  {
+    name: "Narcolepsy",
+    pathognomonicKeywords: [
+      "narcolepsy",
+      "sudden sleep attacks",
+      "cataplexy",
+      "sleep paralysis sudden",
+    ],
+    primaryKeywords: [
+      "sudden uncontrollable sleep daytime",
+      "sudden muscle weakness when laughing",
+    ],
+    secondaryKeywords: [
+      "extreme daytime sleepiness",
+      "sleep paralysis",
+      "hallucinations falling asleep",
+    ],
+    negativeKeywords: [],
+    clusters: [["sudden sleep attacks", "muscle weakness emotion triggered"]],
+    cause:
+      "Caused by lack of hypocretin (orexin) in the brain, often due to autoimmune destruction of neurons.",
+    precautions:
+      "1. Take prescribed stimulants (modafinil) and sodium oxybate.\n2. Schedule regular naps.\n3. Avoid driving during attacks.\n4. Maintain consistent sleep schedule.\n5. Inform school or workplace.",
+  },
+
+  // ── CARDIOVASCULAR (ADDITIONAL) ────────────────────────────────────────────
+  {
+    name: "Atrial Fibrillation",
+    pathognomonicKeywords: [
+      "atrial fibrillation",
+      "afib",
+      "irregular heartbeat",
+      "heart rhythm disorder",
+    ],
+    primaryKeywords: [
+      "irregular rapid heartbeat",
+      "palpitations with dizziness",
+    ],
+    secondaryKeywords: [
+      "heart palpitations",
+      "shortness of breath",
+      "fatigue",
+      "dizziness",
+      "chest discomfort",
+    ],
+    negativeKeywords: [],
+    clusters: [["irregular heartbeat", "shortness of breath", "fatigue"]],
+    cause:
+      "Caused by disorganized electrical signals in the heart atria. Risk: hypertension, heart disease, age.",
+    precautions:
+      "1. Seek medical evaluation for rhythm management.\n2. Take prescribed anticoagulants to prevent stroke.\n3. Rate or rhythm control medications.\n4. Consider cardioversion or ablation.\n5. Manage underlying conditions.",
+  },
+  {
+    name: "Heart Failure",
+    pathognomonicKeywords: [
+      "heart failure",
+      "congestive heart failure",
+      "chf",
+      "cardiac failure",
+    ],
+    primaryKeywords: [
+      "breathlessness lying flat",
+      "ankle swelling breathlessness",
+      "waking breathless at night",
+    ],
+    secondaryKeywords: [
+      "shortness of breath",
+      "swollen ankles",
+      "fatigue",
+      "weight gain fluid",
+      "reduced exercise tolerance",
+    ],
+    negativeKeywords: [],
+    clusters: [["breathlessness lying flat", "ankle swelling", "fatigue"]],
+    cause:
+      "Caused by the heart being unable to pump enough blood. Follows heart attack, hypertension, or valve disease.",
+    precautions:
+      "1. Take prescribed diuretics, ACE inhibitors, beta-blockers.\n2. Restrict salt and fluid intake.\n3. Monitor weight daily for fluid retention.\n4. Attend regular cardiology appointments.\n5. Avoid NSAIDs.",
+  },
+  {
+    name: "Pericarditis",
+    pathognomonicKeywords: [
+      "pericarditis",
+      "heart sac inflammation",
+      "sharp chest pain worse lying down",
+    ],
+    primaryKeywords: [
+      "sharp chest pain sitting forward relieved",
+      "chest pain worse lying down",
+    ],
+    secondaryKeywords: ["chest pain", "fever", "fatigue", "heart palpitations"],
+    negativeKeywords: [],
+    clusters: [
+      ["sharp chest pain", "worse lying down", "relieved sitting forward"],
+    ],
+    cause:
+      "Inflammation of the pericardium (sac around the heart). Causes: viral infection, autoimmune, post-heart attack.",
+    precautions:
+      "1. Take prescribed NSAIDs and colchicine.\n2. Rest and avoid strenuous activity.\n3. Seek emergency care for severe pain.\n4. Corticosteroids for refractory cases.\n5. Regular echocardiogram follow-up.",
+  },
+  {
+    name: "Varicose Veins",
+    pathognomonicKeywords: [
+      "varicose veins",
+      "twisted bulging veins legs",
+      "knotted leg veins",
+    ],
+    primaryKeywords: ["bulging visible veins legs", "aching heavy legs"],
+    secondaryKeywords: [
+      "leg aching",
+      "leg swelling",
+      "itching over veins",
+      "leg cramps",
+    ],
+    negativeKeywords: [],
+    clusters: [["visible bulging veins", "leg aching", "swelling"]],
+    cause:
+      "Caused by weakened vein valves allowing blood to pool. Risk: prolonged standing, pregnancy, obesity.",
+    precautions:
+      "1. Wear compression stockings.\n2. Elevate legs regularly.\n3. Regular walking exercise.\n4. Avoid prolonged standing.\n5. Laser treatment or surgery for severe cases.",
+  },
+
+  // ── ENDOCRINE / METABOLIC (ADDITIONAL) ─────────────────────────────────────
+  {
+    name: "Type 1 Diabetes",
+    pathognomonicKeywords: [
+      "type 1 diabetes",
+      "juvenile diabetes",
+      "insulin dependent",
+      "diabetic ketoacidosis",
+    ],
+    primaryKeywords: [
+      "sudden weight loss thirst urination young",
+      "fruity breath diabetic",
+    ],
+    secondaryKeywords: [
+      "frequent urination",
+      "extreme thirst",
+      "weight loss",
+      "fatigue",
+      "blurred vision",
+    ],
+    negativeKeywords: [],
+    clusters: [
+      ["frequent urination", "extreme thirst", "weight loss", "fatigue"],
+    ],
+    cause:
+      "Autoimmune destruction of insulin-producing beta cells in the pancreas.",
+    precautions:
+      "1. Insulin therapy is essential — do not stop.\n2. Monitor blood glucose multiple times daily.\n3. Learn to recognize and treat hypoglycemia.\n4. Follow carbohydrate counting with a dietitian.\n5. Regular check-ups for complications.",
+  },
+  {
+    name: "Addison's Disease",
+    pathognomonicKeywords: [
+      "addison's disease",
+      "adrenal insufficiency",
+      "hyperpigmentation fatigue",
+    ],
+    primaryKeywords: [
+      "skin darkening fatigue",
+      "low blood pressure fatigue salt craving",
+    ],
+    secondaryKeywords: [
+      "fatigue",
+      "weight loss",
+      "low blood pressure",
+      "dizziness",
+      "nausea",
+      "skin darkening",
+    ],
+    negativeKeywords: [],
+    clusters: [
+      ["fatigue", "weight loss", "skin darkening", "low blood pressure"],
+    ],
+    cause:
+      "Caused by damage to the adrenal glands reducing cortisol and aldosterone production.",
+    precautions:
+      "1. Take prescribed hydrocortisone and fludrocortisone.\n2. Increase medication during illness or stress.\n3. Wear medical alert ID.\n4. Carry emergency hydrocortisone injection.\n5. Regular endocrinology follow-up.",
+  },
+  {
+    name: "Cushing's Syndrome",
+    pathognomonicKeywords: [
+      "cushing's syndrome",
+      "high cortisol",
+      "moon face buffalo hump",
+      "cortisol excess",
+    ],
+    primaryKeywords: [
+      "round face weight gain upper body",
+      "purple stretch marks",
+    ],
+    secondaryKeywords: [
+      "weight gain",
+      "fatigue",
+      "high blood pressure",
+      "diabetes symptoms",
+      "muscle weakness",
+      "stretch marks",
+    ],
+    negativeKeywords: [],
+    clusters: [["round face", "weight gain", "purple stretch marks"]],
+    cause:
+      "Caused by prolonged exposure to high cortisol levels, from tumors or long-term steroid use.",
+    precautions:
+      "1. Seek endocrinology evaluation.\n2. Reduce or adjust corticosteroid medications.\n3. Surgical removal of tumor if present.\n4. Monitor blood pressure and blood sugar.\n5. Bone density monitoring.",
+  },
+  {
+    name: "Metabolic Syndrome",
+    pathognomonicKeywords: [
+      "metabolic syndrome",
+      "insulin resistance syndrome",
+    ],
+    primaryKeywords: [
+      "high blood pressure high blood sugar obesity",
+      "large waist fatigue",
+    ],
+    secondaryKeywords: [
+      "weight gain",
+      "fatigue",
+      "high blood pressure",
+      "frequent urination",
+      "abdominal obesity",
+    ],
+    negativeKeywords: [],
+    clusters: [["obesity", "high blood pressure", "high blood sugar"]],
+    cause:
+      "A cluster of conditions increasing risk of heart disease, stroke, and diabetes. Caused by insulin resistance.",
+    precautions:
+      "1. Lose weight through diet and exercise.\n2. Follow a low-carbohydrate, low-fat diet.\n3. Exercise at least 150 minutes per week.\n4. Treat each component (BP, sugar, cholesterol).\n5. Regular medical monitoring.",
+  },
+  {
+    name: "Vitamin D Deficiency",
+    pathognomonicKeywords: [
+      "vitamin d deficiency",
+      "low vitamin d",
+      "rickets",
+      "vitamin d low",
+    ],
+    primaryKeywords: [
+      "bone pain fatigue low sun exposure",
+      "muscle weakness sunlight deficiency",
+    ],
+    secondaryKeywords: [
+      "fatigue",
+      "bone pain",
+      "muscle weakness",
+      "depression",
+      "frequent illness",
+    ],
+    negativeKeywords: [],
+    clusters: [["bone pain", "fatigue", "muscle weakness"]],
+    cause:
+      "Caused by insufficient sun exposure, poor dietary intake, or malabsorption.",
+    precautions:
+      "1. Take prescribed vitamin D supplements.\n2. Get adequate sun exposure.\n3. Eat vitamin D-rich foods (fish, eggs, fortified milk).\n4. Monitor blood levels regularly.\n5. Treat underlying malabsorption if present.",
+  },
+  {
+    name: "Iron Deficiency (without Anemia)",
+    pathognomonicKeywords: [
+      "iron deficiency",
+      "low iron",
+      "restless legs iron",
+      "spoon nails iron",
+    ],
+    primaryKeywords: [
+      "craving ice dirt",
+      "brittle nails hair loss fatigue",
+      "spoon-shaped nails",
+    ],
+    secondaryKeywords: [
+      "fatigue",
+      "weakness",
+      "hair loss",
+      "brittle nails",
+      "difficulty concentrating",
+    ],
+    negativeKeywords: [],
+    clusters: [["fatigue", "hair loss", "brittle nails"]],
+    cause:
+      "Caused by inadequate dietary iron, increased demand (pregnancy), or blood loss.",
+    precautions:
+      "1. Take prescribed iron supplements on empty stomach.\n2. Eat iron-rich foods with vitamin C.\n3. Avoid tea/coffee with meals.\n4. Investigate source of blood loss.\n5. Monitor iron levels.",
+  },
+
+  // ── MUSCULOSKELETAL (ADDITIONAL) ───────────────────────────────────────────
+  {
+    name: "Plantar Fasciitis",
+    pathognomonicKeywords: [
+      "plantar fasciitis",
+      "heel pain first step morning",
+      "sharp heel pain morning",
+    ],
+    primaryKeywords: [
+      "heel pain first steps morning",
+      "foot arch pain standing",
+    ],
+    secondaryKeywords: ["foot pain", "heel pain", "pain standing long"],
+    negativeKeywords: [],
+    clusters: [["heel pain", "first steps morning", "worse after rest"]],
+    cause:
+      "Caused by inflammation of the plantar fascia, the band of tissue connecting heel to toes. Risk: flat feet, obesity, standing.",
+    precautions:
+      "1. Stretch plantar fascia and Achilles tendon daily.\n2. Wear supportive footwear with arch support.\n3. Ice the heel after activity.\n4. Physical therapy.\n5. Corticosteroid injection for persistent cases.",
+  },
+  {
+    name: "Carpal Tunnel Syndrome",
+    pathognomonicKeywords: [
+      "carpal tunnel",
+      "wrist numbness night",
+      "hand tingling typing",
+    ],
+    primaryKeywords: [
+      "numbness tingling hand wrist night",
+      "weak grip hand numbness",
+    ],
+    secondaryKeywords: [
+      "hand numbness",
+      "wrist pain",
+      "tingling fingers",
+      "weak grip",
+    ],
+    negativeKeywords: [],
+    clusters: [["hand tingling", "wrist pain", "numbness at night"]],
+    cause:
+      "Caused by compression of the median nerve in the carpal tunnel of the wrist.",
+    precautions:
+      "1. Wear a wrist splint at night.\n2. Ergonomic adjustments at workstation.\n3. Physical therapy.\n4. Corticosteroid injections.\n5. Surgery for severe cases.",
+  },
+  {
+    name: "Tendinitis",
+    pathognomonicKeywords: [
+      "tendinitis",
+      "tendon inflammation",
+      "tennis elbow",
+      "golfer's elbow",
+    ],
+    primaryKeywords: [
+      "pain with movement specific tendon",
+      "shoulder pain overhead movement",
+    ],
+    secondaryKeywords: [
+      "joint pain",
+      "tenderness over tendon",
+      "swelling around tendon",
+      "stiffness",
+    ],
+    negativeKeywords: [],
+    clusters: [["tendon pain", "worse with movement"]],
+    cause:
+      "Caused by repetitive motion or overuse of a tendon, leading to microscopic tears and inflammation.",
+    precautions:
+      "1. Rest the affected area.\n2. Ice for 20 minutes several times daily.\n3. Take NSAIDs.\n4. Physical therapy stretching and strengthening.\n5. Avoid the aggravating activity.",
+  },
+  {
+    name: "Scoliosis",
+    pathognomonicKeywords: [
+      "scoliosis",
+      "curved spine",
+      "spine curvature",
+      "one shoulder higher",
+    ],
+    primaryKeywords: ["uneven shoulders visible", "curved back visible"],
+    secondaryKeywords: [
+      "back pain",
+      "uneven hips",
+      "back stiffness",
+      "one shoulder higher",
+    ],
+    negativeKeywords: [],
+    clusters: [["uneven shoulders", "curved spine", "back pain"]],
+    cause:
+      "Idiopathic in most cases. Can be caused by neuromuscular conditions, congenital defects, or injuries.",
+    precautions:
+      "1. Regular spine monitoring with X-rays.\n2. Bracing for adolescents with moderate curves.\n3. Physical therapy for posture.\n4. Surgery for severe curves.\n5. Swimming and core strengthening exercises.",
+  },
+  {
+    name: "Ankylosing Spondylitis",
+    pathognomonicKeywords: [
+      "ankylosing spondylitis",
+      "sacroiliac joint pain",
+      "spine stiffness young man",
+      "bamboo spine",
+    ],
+    primaryKeywords: [
+      "low back stiffness young",
+      "morning back stiffness improves exercise",
+    ],
+    secondaryKeywords: [
+      "lower back pain",
+      "morning stiffness",
+      "hip pain",
+      "fatigue",
+    ],
+    negativeKeywords: [],
+    clusters: [
+      ["morning back stiffness", "improves with exercise", "young adult"],
+    ],
+    cause:
+      "Autoimmune inflammatory arthritis primarily affecting the spine and sacroiliac joints.",
+    precautions:
+      "1. Take prescribed NSAIDs and biologics.\n2. Daily stretching and posture exercises.\n3. Swim or cycle for low-impact exercise.\n4. Avoid smoking — worsens progression.\n5. Regular rheumatology follow-up.",
+  },
+
+  // ── DERMATOLOGY (ADDITIONAL) ───────────────────────────────────────────────
+  {
+    name: "Rosacea",
+    pathognomonicKeywords: [
+      "rosacea",
+      "red flushed face",
+      "facial redness flushes",
+      "bumpy red face nose",
+    ],
+    primaryKeywords: [
+      "facial redness persistent cheeks nose",
+      "visible blood vessels face",
+    ],
+    secondaryKeywords: [
+      "facial redness",
+      "skin bumps",
+      "flushing",
+      "eye irritation",
+    ],
+    negativeKeywords: [],
+    clusters: [["persistent facial redness", "flushing", "bumps on face"]],
+    cause:
+      "Caused by abnormal facial blood vessel reactivity and inflammation. Triggers: alcohol, spicy food, sun, stress.",
+    precautions:
+      "1. Identify and avoid triggers.\n2. Apply prescribed topical metronidazole or azelaic acid.\n3. Use high-SPF sunscreen daily.\n4. Laser treatment for visible vessels.\n5. Oral antibiotics for inflammatory rosacea.",
+  },
+  {
+    name: "Cellulitis",
+    pathognomonicKeywords: [
+      "cellulitis",
+      "skin infection red hot swollen",
+      "spreading red skin infection",
+    ],
+    primaryKeywords: [
+      "spreading redness hot skin fever",
+      "red warm swollen skin area",
+    ],
+    secondaryKeywords: [
+      "skin redness",
+      "skin swelling",
+      "fever",
+      "warmth",
+      "pain over skin",
+    ],
+    negativeKeywords: [],
+    clusters: [["spreading redness", "warm skin", "fever"]],
+    cause:
+      "Caused by bacteria (Streptococcus, Staphylococcus) entering through broken skin.",
+    precautions:
+      "1. Take prescribed antibiotics.\n2. Mark the edge of redness to monitor spread.\n3. Elevate the affected limb.\n4. Seek emergency care if red lines (streaking) appear.\n5. Keep skin moisturized to prevent breaks.",
+  },
+  {
+    name: "Impetigo",
+    pathognomonicKeywords: [
+      "impetigo",
+      "honey crust skin lesion",
+      "crusty yellow sores child",
+    ],
+    primaryKeywords: [
+      "golden crusted sores around mouth nose",
+      "crusty yellow blisters child skin",
+    ],
+    secondaryKeywords: [
+      "skin sores",
+      "skin bumps",
+      "itching",
+      "fluid filled blisters",
+    ],
+    negativeKeywords: [],
+    clusters: [["honey-colored crust", "skin sores", "child"]],
+    cause:
+      "Caused by Staphylococcus or Streptococcus bacteria. Common in children, highly contagious.",
+    precautions:
+      "1. Apply prescribed antibiotic cream or take oral antibiotics.\n2. Keep lesions covered.\n3. Wash hands frequently.\n4. Do not share towels or clothing.\n5. Keep child home from school until crusts clear.",
+  },
+  {
+    name: "Vitiligo",
+    pathognomonicKeywords: [
+      "vitiligo",
+      "white patches skin",
+      "depigmented skin",
+      "loss of skin color patches",
+    ],
+    primaryKeywords: [
+      "white loss of color skin patches",
+      "white patches spreading skin",
+    ],
+    secondaryKeywords: ["skin patches", "pale skin areas"],
+    negativeKeywords: [],
+    clusters: [["white patches skin", "spreading depigmentation"]],
+    cause:
+      "Autoimmune condition where immune cells destroy melanocytes (pigment cells) in the skin.",
+    precautions:
+      "1. Use prescribed topical corticosteroids or calcineurin inhibitors.\n2. Apply high-SPF sunscreen to white patches.\n3. Phototherapy (narrowband UVB).\n4. Camouflage makeup for cosmetic concerns.\n5. Psychological support if needed.",
+  },
+  {
+    name: "Alopecia",
+    pathognomonicKeywords: [
+      "alopecia",
+      "hair loss patches",
+      "bald patches sudden",
+      "alopecia areata",
+    ],
+    primaryKeywords: [
+      "circular hair loss patches scalp",
+      "sudden round bald patches",
+    ],
+    secondaryKeywords: ["hair loss", "bald patches", "thinning hair"],
+    negativeKeywords: [],
+    clusters: [["sudden round bald patches", "scalp"]],
+    cause:
+      "Alopecia areata: autoimmune attack on hair follicles. Other types: stress, hormonal, genetic.",
+    precautions:
+      "1. Consult a dermatologist.\n2. Corticosteroid injections for alopecia areata.\n3. Minoxidil topical application.\n4. Stress management.\n5. Wigs or hairpieces for cosmetic support.",
+  },
+  {
+    name: "Seborrheic Dermatitis",
+    pathognomonicKeywords: [
+      "seborrheic dermatitis",
+      "dandruff severe",
+      "flaky scalp red skin",
+      "cradle cap adult",
+    ],
+    primaryKeywords: [
+      "scalp flaking redness",
+      "oily skin flaking eyebrows nose",
+    ],
+    secondaryKeywords: [
+      "flaky skin",
+      "scaly patches",
+      "skin redness",
+      "itching scalp",
+    ],
+    negativeKeywords: [],
+    clusters: [["scalp flaking", "oily skin", "facial redness"]],
+    cause:
+      "Caused by an inflammatory reaction to Malassezia yeast on oily areas of the skin.",
+    precautions:
+      "1. Use medicated shampoo (ketoconazole, selenium sulfide).\n2. Apply prescribed antifungal creams.\n3. Avoid triggers: stress, cold weather.\n4. Gently remove scales.\n5. Manage consistently — it tends to recur.",
+  },
+
+  // ── MENTAL HEALTH (ADDITIONAL) ─────────────────────────────────────────────
+  {
+    name: "PTSD (Post-Traumatic Stress Disorder)",
+    pathognomonicKeywords: [
+      "ptsd",
+      "post traumatic stress",
+      "flashbacks trauma",
+      "nightmares trauma",
+    ],
+    primaryKeywords: [
+      "nightmares about event",
+      "avoiding reminders trauma",
+      "sudden fear flashbacks",
+    ],
+    secondaryKeywords: [
+      "anxiety",
+      "nightmares",
+      "irritability",
+      "hypervigilance",
+      "depression",
+      "sleep problems",
+    ],
+    negativeKeywords: [],
+    clusters: [["trauma flashbacks", "nightmares", "avoidance"]],
+    cause:
+      "Caused by experiencing or witnessing a traumatic event. Involves altered stress response and memory processing.",
+    precautions:
+      "1. Seek trauma-focused therapy (EMDR or CBT).\n2. Take prescribed medications (SSRIs).\n3. Build a support network.\n4. Practice mindfulness and grounding techniques.\n5. Avoid alcohol and substances.",
+  },
+  {
+    name: "Bipolar Disorder",
+    pathognomonicKeywords: [
+      "bipolar disorder",
+      "manic episode",
+      "mania depression",
+      "extreme mood swings",
+    ],
+    primaryKeywords: [
+      "extreme euphoria then depression",
+      "no need for sleep energy burst",
+    ],
+    secondaryKeywords: [
+      "mood swings",
+      "energy bursts",
+      "impulsive behavior",
+      "depression",
+      "irritability",
+    ],
+    negativeKeywords: [],
+    clusters: [["extreme mood swings", "mania", "depression episodes"]],
+    cause:
+      "Involves neurochemical imbalances. Risk: genetics, stress, substance use.",
+    precautions:
+      "1. Take prescribed mood stabilizers (lithium, valproate).\n2. Maintain consistent sleep schedule.\n3. Avoid alcohol and recreational drugs.\n4. Regular psychiatry appointments.\n5. Educate family members about the condition.",
+  },
+  {
+    name: "Schizophrenia",
+    pathognomonicKeywords: [
+      "schizophrenia",
+      "hallucinations voices",
+      "hearing voices",
+      "delusions false beliefs",
+    ],
+    primaryKeywords: [
+      "hearing voices not there",
+      "believing being watched",
+      "disorganized thinking",
+    ],
+    secondaryKeywords: [
+      "hallucinations",
+      "delusions",
+      "confused thinking",
+      "social withdrawal",
+      "flat emotion",
+    ],
+    negativeKeywords: [],
+    clusters: [["hearing voices", "delusions", "disorganized thinking"]],
+    cause:
+      "Involves dopamine and glutamate pathway dysregulation. Risk: genetics, prenatal stress, cannabis use.",
+    precautions:
+      "1. Take prescribed antipsychotic medications consistently.\n2. Regular psychiatry follow-up.\n3. Psychosocial rehabilitation.\n4. Family support and education.\n5. Avoid alcohol and drugs — worsen psychosis.",
+  },
+  {
+    name: "OCD (Obsessive-Compulsive Disorder)",
+    pathognomonicKeywords: [
+      "ocd",
+      "obsessive compulsive",
+      "intrusive thoughts compulsions",
+      "checking repeatedly",
+    ],
+    primaryKeywords: [
+      "intrusive thoughts can't stop",
+      "repetitive checking cleaning behavior",
+    ],
+    secondaryKeywords: [
+      "anxiety",
+      "repetitive behavior",
+      "intrusive thoughts",
+      "ritual behavior",
+    ],
+    negativeKeywords: [],
+    clusters: [["intrusive thoughts", "compulsive rituals", "anxiety"]],
+    cause:
+      "Involves abnormal serotonin signaling and hyperactive brain circuits. Risk: genetics, trauma.",
+    precautions:
+      "1. Seek CBT with exposure and response prevention (ERP).\n2. Take prescribed SSRIs.\n3. Join a support group.\n4. Learn to tolerate uncertainty.\n5. Avoid reassurance-seeking behaviors.",
+  },
+  {
+    name: "ADHD",
+    pathognomonicKeywords: [
+      "adhd",
+      "attention deficit",
+      "hyperactivity disorder",
+      "cannot concentrate child",
+    ],
+    primaryKeywords: [
+      "inability to focus long",
+      "hyperactive impulsive child adult",
+      "easily distracted always",
+    ],
+    secondaryKeywords: [
+      "difficulty concentrating",
+      "forgetfulness",
+      "impulsive",
+      "restlessness",
+    ],
+    negativeKeywords: [],
+    clusters: [["inattention", "hyperactivity", "impulsivity"]],
+    cause:
+      "Involves dopamine and norepinephrine pathway differences. Genetic and environmental factors.",
+    precautions:
+      "1. Stimulant medications (methylphenidate, amphetamines) are effective.\n2. Behavioral therapy.\n3. Structured routines and organized environment.\n4. Regular school/workplace accommodations.\n5. Regular psychiatry follow-up.",
+  },
+  {
+    name: "Eating Disorder (Anorexia/Bulimia)",
+    pathognomonicKeywords: [
+      "anorexia",
+      "bulimia",
+      "eating disorder",
+      "restriction of eating extreme",
+      "binge purge",
+    ],
+    primaryKeywords: [
+      "refusing to eat extremely low weight",
+      "binge eating then vomiting",
+    ],
+    secondaryKeywords: [
+      "weight loss extreme",
+      "food restriction",
+      "body image distortion",
+      "fatigue",
+      "hair loss",
+    ],
+    negativeKeywords: [],
+    clusters: [
+      ["food restriction", "extreme weight loss", "body image concern"],
+    ],
+    cause:
+      "Complex interaction of genetic, psychological, and social factors affecting body image and eating.",
+    precautions:
+      "1. Seek immediate professional help — can be life-threatening.\n2. Nutritional rehabilitation.\n3. Psychotherapy (CBT, family-based therapy).\n4. Medical monitoring for complications.\n5. Support groups for patients and families.",
+  },
+
+  // ── OPHTHALMOLOGY (ADDITIONAL) ─────────────────────────────────────────────
+  {
+    name: "Cataracts",
+    pathognomonicKeywords: [
+      "cataract",
+      "cloudy lens eye",
+      "blurry vision worse at night",
+      "halo night driving",
+    ],
+    primaryKeywords: [
+      "cloudy foggy vision",
+      "colors faded vision",
+      "bright light sensitivity",
+    ],
+    secondaryKeywords: [
+      "blurred vision",
+      "difficulty reading",
+      "halos lights",
+      "double vision",
+    ],
+    negativeKeywords: [],
+    clusters: [["cloudy vision", "glare sensitivity", "faded colors"]],
+    cause:
+      "Caused by protein clumping in the eye lens due to aging, UV exposure, diabetes, or steroid use.",
+    precautions:
+      "1. Regular eye exams.\n2. Wear UV-protective sunglasses.\n3. Control diabetes and blood pressure.\n4. Surgery (phacoemulsification) is curative.\n5. Prescription glasses for mild cases.",
+  },
+  {
+    name: "Macular Degeneration",
+    pathognomonicKeywords: [
+      "macular degeneration",
+      "amd",
+      "central vision loss",
+      "distorted central vision",
+    ],
+    primaryKeywords: [
+      "blurry central vision elderly",
+      "straight lines appear wavy",
+    ],
+    secondaryKeywords: [
+      "blurred vision",
+      "difficulty reading",
+      "dark spot center vision",
+    ],
+    negativeKeywords: [],
+    clusters: [["central vision loss", "distorted lines", "elderly"]],
+    cause:
+      "Caused by deterioration of the macula (central retina) due to aging and oxidative stress.",
+    precautions:
+      "1. Regular eye exams after 50.\n2. Anti-VEGF injections for wet AMD.\n3. Take AREDS2 supplements for dry AMD.\n4. Use magnifying aids.\n5. Quit smoking.",
+  },
+  {
+    name: "Stye (Hordeolum)",
+    pathognomonicKeywords: [
+      "stye",
+      "hordeolum",
+      "eyelid lump painful",
+      "red lump eyelid",
+    ],
+    primaryKeywords: ["painful red lump eyelid", "eyelid swelling tender spot"],
+    secondaryKeywords: [
+      "eyelid swelling",
+      "eye pain",
+      "eye discharge",
+      "tearing",
+    ],
+    negativeKeywords: [],
+    clusters: [["eyelid lump", "pain", "redness"]],
+    cause:
+      "Caused by bacterial infection (Staphylococcus) of an eyelid sebaceous gland.",
+    precautions:
+      "1. Apply warm compresses 4 times daily.\n2. Do not squeeze or pop the stye.\n3. Antibiotic eye drops if prescribed.\n4. Seek care if no improvement after a week.\n5. Replace old eye makeup.",
+  },
+
+  // ── UROLOGICAL (ADDITIONAL) ────────────────────────────────────────────────
+  {
+    name: "Benign Prostatic Hyperplasia (BPH)",
+    pathognomonicKeywords: [
+      "enlarged prostate",
+      "bph",
+      "benign prostatic",
+      "prostate enlargement",
+      "urinary hesitancy old man",
+    ],
+    primaryKeywords: [
+      "difficulty starting urination",
+      "weak urine stream elderly male",
+    ],
+    secondaryKeywords: [
+      "frequent urination",
+      "incomplete bladder emptying",
+      "nocturia",
+      "dribbling urine",
+    ],
+    negativeKeywords: [],
+    clusters: [
+      [
+        "urinary hesitancy",
+        "weak stream",
+        "frequent urination",
+        "elderly male",
+      ],
+    ],
+    cause:
+      "Caused by non-cancerous enlargement of the prostate gland, common with aging.",
+    precautions:
+      "1. Take prescribed alpha-blockers or 5-alpha reductase inhibitors.\n2. Limit evening fluids.\n3. Avoid decongestants and antihistamines.\n4. Regular PSA and prostate exams.\n5. Surgery for severe cases.",
+  },
+  {
+    name: "Prostate Cancer",
+    pathognomonicKeywords: [
+      "prostate cancer",
+      "psa elevated",
+      "prostate malignancy",
+    ],
+    primaryKeywords: [
+      "urinary symptoms elderly male blood urine",
+      "difficulty urinating older man persistent",
+    ],
+    secondaryKeywords: [
+      "frequent urination",
+      "blood in urine",
+      "back pain",
+      "bone pain",
+      "weak urine stream",
+    ],
+    negativeKeywords: [],
+    clusters: [
+      ["urinary difficulties", "blood in urine", "back pain", "elderly male"],
+    ],
+    cause:
+      "Abnormal cell growth in the prostate gland. Risk: age, family history, African descent.",
+    precautions:
+      "1. Regular PSA screening for men over 50.\n2. Follow prescribed treatment plan.\n3. Maintain a healthy diet low in red meat.\n4. Exercise regularly.\n5. Genetic counseling if family history present.",
+  },
+  {
+    name: "Overactive Bladder",
+    pathognomonicKeywords: [
+      "overactive bladder",
+      "urge incontinence",
+      "cannot hold urine",
+    ],
+    primaryKeywords: [
+      "sudden urge to urinate cannot hold",
+      "leaking urine urgency",
+    ],
+    secondaryKeywords: [
+      "frequent urination",
+      "urgency urinate",
+      "nocturia",
+      "urinary leakage",
+    ],
+    negativeKeywords: [],
+    clusters: [["urge to urinate suddenly", "leakage", "frequent urination"]],
+    cause:
+      "Caused by involuntary bladder muscle contractions. Risk: age, neurological conditions, caffeine.",
+    precautions:
+      "1. Take prescribed anticholinergics or beta-3 agonists.\n2. Bladder training exercises.\n3. Reduce caffeine and alcohol.\n4. Pelvic floor exercises.\n5. Keep a bladder diary.",
+  },
+
+  // ── OBSTETRIC / GYNECOLOGICAL (ADDITIONAL) ─────────────────────────────────
+  {
+    name: "Preeclampsia",
+    pathognomonicKeywords: [
+      "preeclampsia",
+      "high blood pressure pregnancy",
+      "swelling pregnancy headache",
+    ],
+    primaryKeywords: [
+      "high blood pressure second trimester",
+      "swollen face hands pregnancy",
+    ],
+    secondaryKeywords: [
+      "headache",
+      "swelling",
+      "high blood pressure",
+      "blurred vision",
+      "upper abdominal pain",
+    ],
+    negativeKeywords: [],
+    clusters: [["pregnancy", "high blood pressure", "swelling", "headache"]],
+    cause:
+      "Caused by abnormal placental development leading to endothelial dysfunction during pregnancy.",
+    precautions:
+      "1. Seek immediate medical care — can be life-threatening.\n2. Antihypertensive medications.\n3. Close monitoring of mother and baby.\n4. Low-dose aspirin prophylaxis in at-risk pregnancies.\n5. Delivery is the definitive treatment.",
+  },
+  {
+    name: "Ovarian Cyst",
+    pathognomonicKeywords: [
+      "ovarian cyst",
+      "cyst on ovary",
+      "ovarian cyst pain",
+    ],
+    primaryKeywords: [
+      "pelvic pain one side",
+      "dull pelvic ache irregular period",
+    ],
+    secondaryKeywords: [
+      "pelvic pain",
+      "bloating",
+      "irregular periods",
+      "pain during sex",
+      "nausea",
+    ],
+    negativeKeywords: [],
+    clusters: [["pelvic pain one side", "bloating", "irregular period"]],
+    cause:
+      "Fluid-filled sacs that develop on the ovary, often related to the menstrual cycle or PCOS.",
+    precautions:
+      "1. Ultrasound for diagnosis.\n2. Most cysts resolve on their own.\n3. Take prescribed hormonal contraceptives to prevent new cysts.\n4. Surgery for large or persistent cysts.\n5. Seek emergency care for sudden severe pelvic pain.",
+  },
+  {
+    name: "Uterine Fibroids",
+    pathognomonicKeywords: [
+      "uterine fibroids",
+      "fibroids womb",
+      "heavy periods fibroids",
+      "fibroid uterus",
+    ],
+    primaryKeywords: [
+      "very heavy prolonged periods",
+      "pelvic pressure bulk feeling",
+    ],
+    secondaryKeywords: [
+      "heavy periods",
+      "pelvic pressure",
+      "frequent urination",
+      "constipation",
+      "back pain",
+    ],
+    negativeKeywords: [],
+    clusters: [["very heavy periods", "pelvic pressure", "bloating"]],
+    cause:
+      "Non-cancerous smooth muscle tumors in the uterus. Driven by estrogen and progesterone.",
+    precautions:
+      "1. Consult a gynecologist.\n2. Hormonal medications reduce symptoms.\n3. Uterine artery embolization.\n4. Myomectomy to remove fibroids.\n5. Hysterectomy for definitive treatment.",
+  },
+
+  // ── NEONATAL / PEDIATRIC (ADDITIONAL) ─────────────────────────────────────
+  {
+    name: "Kawasaki Disease",
+    pathognomonicKeywords: [
+      "kawasaki disease",
+      "kawasaki",
+      "strawberry tongue child fever rash",
+    ],
+    primaryKeywords: [
+      "high fever child 5 days rash strawberry tongue",
+      "red eyes peeling skin child",
+    ],
+    secondaryKeywords: [
+      "fever",
+      "rash",
+      "red eyes",
+      "swollen lymph nodes",
+      "red cracked lips",
+      "child",
+    ],
+    negativeKeywords: [],
+    clusters: [
+      ["prolonged fever child", "rash", "red eyes", "swollen lymph nodes"],
+    ],
+    cause:
+      "Unknown cause. Immune system overactivation causes widespread inflammation of blood vessels in children.",
+    precautions:
+      "1. Seek immediate pediatric care.\n2. IV immunoglobulin (IVIG) treatment.\n3. Aspirin therapy.\n4. Echocardiogram to check coronary arteries.\n5. Regular cardiac follow-up.",
+  },
+  {
+    name: "Hand, Foot and Mouth Disease",
+    pathognomonicKeywords: [
+      "hand foot mouth",
+      "hfmd",
+      "sores mouth hands feet child",
+    ],
+    primaryKeywords: [
+      "blisters mouth palms soles child",
+      "painful mouth sores child",
+    ],
+    secondaryKeywords: [
+      "fever",
+      "sore throat",
+      "rash",
+      "fluid filled blisters",
+      "child",
+    ],
+    negativeKeywords: [],
+    clusters: [["mouth sores", "rash hands feet", "fever", "child"]],
+    cause:
+      "Caused by Coxsackievirus, spread through saliva, stool, or respiratory droplets. Common in children under 5.",
+    precautions:
+      "1. Manage symptoms with acetaminophen for pain and fever.\n2. Ensure adequate hydration.\n3. Keep child home until fever resolves.\n4. Wash hands frequently.\n5. Most cases resolve in 7-10 days.",
+  },
+  {
+    name: "Croup",
+    pathognomonicKeywords: [
+      "croup",
+      "barking cough child",
+      "seal cough",
+      "croupy cough stridor",
+    ],
+    primaryKeywords: [
+      "harsh barking cough child",
+      "noisy breathing stridor child",
+    ],
+    secondaryKeywords: [
+      "fever",
+      "hoarse voice",
+      "stridor",
+      "breathing difficulty",
+      "child",
+    ],
+    negativeKeywords: [],
+    clusters: [["barking cough", "stridor", "fever", "child"]],
+    cause:
+      "Caused by viral infection (parainfluenza) causing swelling of the vocal cords and trachea.",
+    precautions:
+      "1. Steam inhalation or cool night air may help.\n2. Prescribed dexamethasone reduces airway swelling.\n3. Nebulized epinephrine for severe cases.\n4. Seek emergency care if stridor at rest or blue lips.\n5. Keep child calm — crying worsens symptoms.",
+  },
+  {
+    name: "Febrile Seizure",
+    pathognomonicKeywords: [
+      "febrile seizure",
+      "fever seizure child",
+      "convulsion with fever child",
+    ],
+    primaryKeywords: ["child shaking with fever", "seizure during high fever"],
+    secondaryKeywords: [
+      "fever",
+      "convulsions",
+      "shaking",
+      "child",
+      "loss of consciousness",
+    ],
+    negativeKeywords: [],
+    clusters: [["seizure", "high fever", "child"]],
+    cause:
+      "Caused by rapid rise in body temperature in young children. Usually harmless.",
+    precautions:
+      "1. Keep child safe during seizure — lay on side.\n2. Do not put anything in the mouth.\n3. Seek medical evaluation.\n4. Control fever with acetaminophen.\n5. Most children outgrow febrile seizures.",
+  },
+
+  // ── ORAL / DENTAL ──────────────────────────────────────────────────────────
+  {
+    name: "Dental Abscess",
+    pathognomonicKeywords: [
+      "dental abscess",
+      "tooth abscess",
+      "tooth pain swollen face",
+      "abscess gum",
+    ],
+    primaryKeywords: [
+      "severe throbbing toothache",
+      "swollen face jaw toothache",
+      "gum swelling pus",
+    ],
+    secondaryKeywords: [
+      "tooth pain",
+      "jaw pain",
+      "swollen jaw",
+      "fever",
+      "bad breath",
+    ],
+    negativeKeywords: [],
+    clusters: [["severe toothache", "swollen jaw face", "fever"]],
+    cause:
+      "Caused by bacterial infection in the tooth pulp or gum, often from untreated cavities.",
+    precautions:
+      "1. Seek immediate dental care.\n2. Take prescribed antibiotics.\n3. Pain management with ibuprofen.\n4. Root canal or extraction may be needed.\n5. Do not ignore — can spread to jaw/neck.",
+  },
+  {
+    name: "Oral Thrush (Candidiasis)",
+    pathognomonicKeywords: [
+      "oral thrush",
+      "white coating tongue",
+      "mouth candidiasis",
+      "fungal mouth infection",
+    ],
+    primaryKeywords: [
+      "white patches inside mouth removable",
+      "creamy white tongue coating",
+    ],
+    secondaryKeywords: [
+      "sore mouth",
+      "difficulty swallowing",
+      "loss of taste",
+      "dry mouth",
+    ],
+    negativeKeywords: [],
+    clusters: [["white patches mouth", "sore mouth", "difficulty swallowing"]],
+    cause:
+      "Caused by Candida yeast overgrowth. Risk: antibiotics, immunocompromised, diabetes, dentures.",
+    precautions:
+      "1. Take prescribed antifungal medications (nystatin, fluconazole).\n2. Rinse mouth after steroid inhaler use.\n3. Maintain good oral hygiene.\n4. Replace old toothbrushes.\n5. Control underlying diabetes.",
+  },
+  {
+    name: "Gingivitis / Periodontitis",
+    pathognomonicKeywords: [
+      "gingivitis",
+      "gum disease",
+      "periodontitis",
+      "gums bleeding",
+    ],
+    primaryKeywords: ["bleeding gums brushing", "swollen red gums"],
+    secondaryKeywords: [
+      "gum bleeding",
+      "bad breath",
+      "gum pain",
+      "loose teeth",
+      "gum recession",
+    ],
+    negativeKeywords: [],
+    clusters: [["bleeding gums", "swollen red gums", "bad breath"]],
+    cause:
+      "Caused by plaque buildup on teeth and gum line causing bacterial infection and inflammation.",
+    precautions:
+      "1. Brush twice daily with fluoride toothpaste.\n2. Floss daily.\n3. Professional dental cleaning.\n4. Avoid smoking.\n5. Treat with scaling and root planing for periodontitis.",
+  },
+
+  // ── TROPICAL / PARASITIC (ADDITIONAL) ────────────────────────────────────
+  {
+    name: "Roundworm Infection (Ascariasis)",
+    pathognomonicKeywords: [
+      "ascariasis",
+      "roundworm",
+      "worms in stool",
+      "intestinal worms",
+    ],
+    primaryKeywords: ["visible worms in stool", "abdominal pain worms"],
+    secondaryKeywords: [
+      "abdominal pain",
+      "nausea",
+      "vomiting",
+      "diarrhea",
+      "weight loss",
+      "cough",
+    ],
+    negativeKeywords: [],
+    clusters: [["worms in stool", "abdominal pain", "weight loss"]],
+    cause:
+      "Caused by Ascaris lumbricoides roundworm. Spread through contaminated soil and feces.",
+    precautions:
+      "1. Take prescribed albendazole or mebendazole.\n2. Wash hands before eating.\n3. Eat only cooked food.\n4. Wash fruits and vegetables.\n5. Mass deworming for at-risk communities.",
+  },
+  {
+    name: "Tapeworm Infection",
+    pathognomonicKeywords: [
+      "tapeworm",
+      "segments in stool",
+      "proglottids stool",
+      "tape worm",
+    ],
+    primaryKeywords: ["white segments in stool", "tapeworm stool"],
+    secondaryKeywords: [
+      "abdominal pain",
+      "weight loss",
+      "nausea",
+      "diarrhea",
+      "fatigue",
+    ],
+    negativeKeywords: [],
+    clusters: [["segments in stool", "weight loss", "abdominal pain"]],
+    cause:
+      "Caused by consuming undercooked infected meat (beef, pork, fish) containing tapeworm larvae.",
+    precautions:
+      "1. Take prescribed praziquantel or niclosamide.\n2. Cook meat thoroughly.\n3. Wash hands before eating.\n4. Avoid raw or undercooked meat.\n5. Treat promptly to prevent organ cysts.",
+  },
+  {
+    name: "Pinworm Infection",
+    pathognomonicKeywords: [
+      "pinworm",
+      "threadworm",
+      "anal itching night child",
+      "itching anus night",
+    ],
+    primaryKeywords: [
+      "itching around anus at night",
+      "child scratching anus night",
+    ],
+    secondaryKeywords: [
+      "anal itching",
+      "sleep disturbance",
+      "irritability child",
+    ],
+    negativeKeywords: [],
+    clusters: [["anal itching at night", "child", "sleep disturbance"]],
+    cause:
+      "Caused by Enterobius vermicularis. Spreads through egg contamination of hands, food, and surfaces.",
+    precautions:
+      "1. Take prescribed mebendazole.\n2. Treat all household members.\n3. Wash all bedding and underwear in hot water.\n4. Cut and clean fingernails.\n5. Wash hands frequently.",
+  },
+
+  // ── SEXUALLY TRANSMITTED (ADDITIONAL) ─────────────────────────────────────
+  {
+    name: "Syphilis",
+    pathognomonicKeywords: [
+      "syphilis",
+      "painless genital ulcer",
+      "chancre",
+      "treponema",
+    ],
+    primaryKeywords: [
+      "painless sore genitals",
+      "copper penny rash palms soles",
+    ],
+    secondaryKeywords: [
+      "genital sore",
+      "rash",
+      "swollen lymph nodes",
+      "fever",
+      "muscle aches",
+    ],
+    negativeKeywords: [],
+    clusters: [
+      ["painless genital sore", "rash palms soles", "swollen lymph nodes"],
+    ],
+    cause:
+      "Caused by Treponema pallidum bacteria, transmitted through sexual contact or mother to child.",
+    precautions:
+      "1. Seek medical care for antibiotic treatment.\n2. Single penicillin injection for early syphilis.\n3. Notify all sexual partners.\n4. Regular STI screening.\n5. Use condoms consistently.",
+  },
+  {
+    name: "Genital Herpes",
+    pathognomonicKeywords: [
+      "genital herpes",
+      "hsv2",
+      "herpes genital sores",
+      "recurring genital blisters",
+    ],
+    primaryKeywords: [
+      "painful genital blisters recurring",
+      "burning blisters genitals",
+    ],
+    secondaryKeywords: [
+      "fluid filled blisters",
+      "genital pain",
+      "itching genitals",
+      "fever first outbreak",
+    ],
+    negativeKeywords: [],
+    clusters: [["genital blisters", "pain", "recurring outbreaks"]],
+    cause:
+      "Caused by Herpes Simplex Virus type 2 (HSV-2), spread through sexual contact.",
+    precautions:
+      "1. Take prescribed antiviral medications (acyclovir, valacyclovir).\n2. Use condoms consistently.\n3. Inform sexual partners.\n4. Avoid sexual contact during outbreaks.\n5. Suppressive therapy reduces transmission.",
+  },
+  {
+    name: "Trichomoniasis",
+    pathognomonicKeywords: [
+      "trichomoniasis",
+      "trich sti",
+      "frothy vaginal discharge fishy smell",
+    ],
+    primaryKeywords: [
+      "frothy yellow green vaginal discharge",
+      "itching genitals discharge sti",
+    ],
+    secondaryKeywords: [
+      "vaginal discharge",
+      "genital itching",
+      "burning urination",
+      "pelvic discomfort",
+    ],
+    negativeKeywords: [],
+    clusters: [["frothy discharge", "genital itching", "odor"]],
+    cause:
+      "Caused by Trichomonas vaginalis parasite, the most common curable STI.",
+    precautions:
+      "1. Take prescribed metronidazole.\n2. Treat all sexual partners simultaneously.\n3. Avoid sexual contact until treatment complete.\n4. Regular STI screening.\n5. Use condoms.",
+  },
+
+  // ── MISCELLANEOUS COMMON CONDITIONS ────────────────────────────────────────
+  {
+    name: "Vitamin B12 Deficiency",
+    pathognomonicKeywords: [
+      "vitamin b12 deficiency",
+      "b12 deficiency",
+      "pernicious anemia",
+      "megaloblastic anemia",
+    ],
+    primaryKeywords: [
+      "tingling numbness hands feet b12",
+      "memory problems fatigue strict vegetarian",
+    ],
+    secondaryKeywords: [
+      "fatigue",
+      "weakness",
+      "numbness",
+      "tingling sensation",
+      "memory problems",
+      "depression",
+      "pale skin",
+    ],
+    negativeKeywords: [],
+    clusters: [["numbness tingling", "fatigue", "memory problems"]],
+    cause:
+      "Caused by dietary deficiency, malabsorption, pernicious anemia, or prolonged metformin use.",
+    precautions:
+      "1. Take prescribed B12 injections or oral supplements.\n2. Eat animal products (meat, dairy, eggs).\n3. Fortified foods for vegetarians/vegans.\n4. Regular blood monitoring.\n5. Treat underlying absorption disorder.",
+  },
+  {
+    name: "Chronic Fatigue Syndrome (ME/CFS)",
+    pathognomonicKeywords: [
+      "chronic fatigue syndrome",
+      "me cfs",
+      "myalgic encephalomyelitis",
+      "post exertional fatigue",
+    ],
+    primaryKeywords: [
+      "extreme fatigue not improved rest",
+      "fatigue worse after activity",
+    ],
+    secondaryKeywords: [
+      "severe fatigue",
+      "sleep problems",
+      "cognitive difficulties",
+      "muscle pain",
+      "headache",
+    ],
+    negativeKeywords: [],
+    clusters: [
+      [
+        "severe fatigue",
+        "worsened by activity",
+        "sleep problems",
+        "cognitive difficulties",
+      ],
+    ],
+    cause:
+      "Exact cause unknown. Often triggered by viral infection. Involves immune and nervous system dysfunction.",
+    precautions:
+      "1. Pace activities to avoid post-exertional worsening.\n2. Sleep hygiene.\n3. Manage symptoms with prescribed medications.\n4. Cognitive and physical therapy tailored to condition.\n5. Regular medical monitoring.",
+  },
+  {
+    name: "Raynaud's Phenomenon",
+    pathognomonicKeywords: [
+      "raynaud's",
+      "raynaud",
+      "fingers turn white blue cold",
+      "color change fingers cold",
+    ],
+    primaryKeywords: [
+      "fingers turn white then blue then red cold",
+      "toes fingers numb cold triggered",
+    ],
+    secondaryKeywords: [
+      "cold fingers",
+      "color change hands",
+      "numbness cold",
+      "tingling fingers",
+    ],
+    negativeKeywords: [],
+    clusters: [["color change fingers", "cold triggered", "numbness"]],
+    cause:
+      "Caused by exaggerated vascular response to cold or stress. Can be primary or secondary to autoimmune disease.",
+    precautions:
+      "1. Keep hands and feet warm.\n2. Avoid cold exposure and stress.\n3. Take prescribed calcium channel blockers.\n4. Stop smoking.\n5. Screen for underlying autoimmune disease.",
+  },
+  {
+    name: "Hypoglycemia (Low Blood Sugar)",
+    pathognomonicKeywords: [
+      "hypoglycemia",
+      "low blood sugar",
+      "sugar crash",
+      "blood sugar low",
+    ],
+    primaryKeywords: [
+      "shaking sweating hungry suddenly",
+      "trembling confusion hunger sudden",
+    ],
+    secondaryKeywords: [
+      "shakiness",
+      "sweating",
+      "dizziness",
+      "confusion",
+      "fatigue",
+      "rapid heartbeat",
+      "hunger",
+    ],
+    negativeKeywords: [],
+    clusters: [["shakiness", "sweating", "confusion", "hunger sudden"]],
+    cause:
+      "Caused by excessive insulin, skipped meals, or certain medications lowering blood glucose below normal.",
+    precautions:
+      "1. Eat 15g of fast-acting sugar immediately (glucose tablets, juice).\n2. Retest blood sugar after 15 minutes.\n3. Eat a meal after correction.\n4. Adjust medications if recurrent.\n5. Carry glucose tablets always.",
+  },
+  {
+    name: "Fainting (Syncope)",
+    pathognomonicKeywords: [
+      "syncope",
+      "fainting",
+      "blacking out",
+      "passing out briefly",
+    ],
+    primaryKeywords: [
+      "sudden loss of consciousness brief",
+      "fainted from standing",
+    ],
+    secondaryKeywords: [
+      "dizziness",
+      "lightheadedness",
+      "faintness",
+      "pale skin before fainting",
+      "sweating before faint",
+    ],
+    negativeKeywords: [],
+    clusters: [
+      [
+        "sudden loss of consciousness",
+        "preceded by dizziness",
+        "brief recovery",
+      ],
+    ],
+    cause:
+      "Caused by temporary drop in blood flow to the brain from dehydration, standing, heat, or cardiac causes.",
+    precautions:
+      "1. Lie down with legs elevated when feeling faint.\n2. Stay hydrated.\n3. Rise slowly from sitting/lying.\n4. Seek medical evaluation for recurrent fainting.\n5. Cardiac causes must be ruled out.",
+  },
+  {
+    name: "Peptic Esophagitis",
+    pathognomonicKeywords: [
+      "esophagitis",
+      "painful swallowing acid",
+      "esophagus inflammation burning",
+    ],
+    primaryKeywords: [
+      "difficulty swallowing burning chest",
+      "pain swallowing acid",
+    ],
+    secondaryKeywords: [
+      "painful swallowing",
+      "chest burning",
+      "heartburn",
+      "nausea",
+    ],
+    negativeKeywords: [],
+    clusters: [["painful swallowing", "burning chest", "acid reflux"]],
+    cause:
+      "Caused by stomach acid irritating the esophagus lining, often from GERD.",
+    precautions:
+      "1. Take prescribed proton pump inhibitors.\n2. Avoid acidic, spicy foods.\n3. Don't lie down after meals.\n4. Elevate head of bed.\n5. Endoscopy for persistent cases.",
+  },
+  {
+    name: "Diverticulitis",
+    pathognomonicKeywords: [
+      "diverticulitis",
+      "diverticula inflamed",
+      "lower left abdominal pain fever",
+    ],
+    primaryKeywords: [
+      "left lower abdominal pain fever",
+      "sigmoid colon pain fever",
+    ],
+    secondaryKeywords: [
+      "abdominal pain",
+      "fever",
+      "nausea",
+      "constipation",
+      "diarrhea",
+      "bloating",
+    ],
+    negativeKeywords: [],
+    clusters: [["left lower abdominal pain", "fever", "nausea"]],
+    cause:
+      "Caused by infection or inflammation of diverticula (small pouches) in the colon wall.",
+    precautions:
+      "1. Take prescribed antibiotics.\n2. Clear liquid diet during acute attack.\n3. High-fiber diet after recovery.\n4. Stay well hydrated.\n5. Surgery for recurrent or complicated cases.",
+  },
+  {
+    name: "Hiatal Hernia",
+    pathognomonicKeywords: [
+      "hiatal hernia",
+      "stomach up chest",
+      "heartburn bending hernia",
+    ],
+    primaryKeywords: [
+      "heartburn bending lying down",
+      "difficulty swallowing burning hernia",
+    ],
+    secondaryKeywords: [
+      "heartburn",
+      "chest discomfort",
+      "difficulty swallowing",
+      "regurgitation",
+      "belching",
+    ],
+    negativeKeywords: [],
+    clusters: [["heartburn", "regurgitation", "worse bending lying"]],
+    cause:
+      "Part of the stomach pushes through the diaphragm into the chest cavity.",
+    precautions:
+      "1. Take prescribed antacids and PPIs.\n2. Eat smaller meals.\n3. Avoid lying down after eating.\n4. Lose weight if overweight.\n5. Surgery for severe symptomatic cases.",
+  },
+  {
+    name: "Thoracic Outlet Syndrome",
+    pathognomonicKeywords: [
+      "thoracic outlet syndrome",
+      "tos",
+      "numbness arm overhead",
+      "shoulder arm numbness overhead",
+    ],
+    primaryKeywords: [
+      "arm numbness overhead activity",
+      "shoulder neck arm pain tingling",
+    ],
+    secondaryKeywords: [
+      "arm pain",
+      "shoulder pain",
+      "numbness",
+      "tingling arm",
+      "weakness arm",
+    ],
+    negativeKeywords: [],
+    clusters: [["arm numbness", "overhead aggravation", "shoulder pain"]],
+    cause:
+      "Caused by compression of nerves or blood vessels between the collarbone and first rib.",
+    precautions:
+      "1. Physical therapy with specific exercises.\n2. Avoid aggravating postures.\n3. Anti-inflammatory medications.\n4. Surgery for vascular TOS.\n5. Ergonomic adjustments.",
+  },
+  {
+    name: "Frozen Shoulder (Adhesive Capsulitis)",
+    pathognomonicKeywords: [
+      "frozen shoulder",
+      "adhesive capsulitis",
+      "shoulder stiff painful months",
+    ],
+    primaryKeywords: [
+      "shoulder pain stiffness worsening months",
+      "cannot lift arm pain",
+    ],
+    secondaryKeywords: [
+      "shoulder pain",
+      "stiffness",
+      "limited shoulder movement",
+    ],
+    negativeKeywords: [],
+    clusters: [["shoulder stiffness", "pain", "progressive loss of movement"]],
+    cause:
+      "Caused by inflammation and thickening of the shoulder joint capsule. Common after injury or immobilization.",
+    precautions:
+      "1. Physical therapy for stretching.\n2. Prescribed NSAIDs and corticosteroid injections.\n3. Shoulder manipulation under anesthesia.\n4. Surgery for refractory cases.\n5. Usually resolves in 1-3 years.",
+  },
+  {
+    name: "Neuropathy (Peripheral)",
+    pathognomonicKeywords: [
+      "peripheral neuropathy",
+      "nerve damage feet",
+      "burning feet neuropathy",
+      "diabetic neuropathy",
+    ],
+    primaryKeywords: [
+      "burning tingling feet at night",
+      "numbness feet glove stocking pattern",
+    ],
+    secondaryKeywords: [
+      "numbness",
+      "tingling sensation",
+      "burning feet",
+      "weakness",
+      "loss of balance",
+    ],
+    negativeKeywords: [],
+    clusters: [["burning feet", "tingling", "numbness at night"]],
+    cause:
+      "Caused by diabetes, B12 deficiency, alcohol, chemotherapy, or other conditions damaging peripheral nerves.",
+    precautions:
+      "1. Control blood sugar tightly.\n2. Take prescribed medications (gabapentin, pregabalin).\n3. B12 supplementation if deficient.\n4. Foot care to prevent injuries.\n5. Avoid alcohol.",
+  },
+  {
+    name: "Polymyalgia Rheumatica",
+    pathognomonicKeywords: [
+      "polymyalgia rheumatica",
+      "pmr",
+      "shoulder hip stiffness elderly",
+      "girdle stiffness elderly",
+    ],
+    primaryKeywords: [
+      "shoulder hip stiffness morning elderly",
+      "aching shoulders hips elderly morning",
+    ],
+    secondaryKeywords: [
+      "stiffness",
+      "shoulder pain",
+      "hip pain",
+      "fatigue",
+      "fever",
+      "weight loss",
+    ],
+    negativeKeywords: [],
+    clusters: [["morning stiffness", "shoulder hip pain", "elderly"]],
+    cause:
+      "Immune-mediated inflammatory condition of the shoulder and hip girdle muscles, more common over 50.",
+    precautions:
+      "1. Prescribed corticosteroids (prednisolone) are very effective.\n2. Regular rheumatology follow-up.\n3. Monitor for giant cell arteritis (GCA).\n4. Bone protection with calcium/vitamin D.\n5. Gradual steroid tapering.",
+  },
+  {
+    name: "Systemic Sclerosis (Scleroderma)",
+    pathognomonicKeywords: [
+      "scleroderma",
+      "systemic sclerosis",
+      "tight hardened skin",
+      "thick hard skin autoimmune",
+    ],
+    primaryKeywords: [
+      "hardening tight skin hands face",
+      "fingers swell hard skin raynaud",
+    ],
+    secondaryKeywords: [
+      "skin tightening",
+      "swallowing difficulty",
+      "raynaud's",
+      "joint pain",
+      "fatigue",
+    ],
+    negativeKeywords: [],
+    clusters: [["hardening skin", "Raynaud's", "swallowing difficulty"]],
+    cause:
+      "Autoimmune condition causing excess collagen production, hardening skin and damaging internal organs.",
+    precautions:
+      "1. Take prescribed immunosuppressants.\n2. Protect hands from cold.\n3. Treat acid reflux aggressively.\n4. Regular lung and heart monitoring.\n5. Physiotherapy to maintain joint mobility.",
+  },
+  {
+    name: "Sjögren's Syndrome",
+    pathognomonicKeywords: [
+      "sjögren",
+      "sjogren syndrome",
+      "dry eyes dry mouth autoimmune",
+    ],
+    primaryKeywords: [
+      "dry eyes dry mouth persistent",
+      "difficulty swallowing dry mouth",
+    ],
+    secondaryKeywords: [
+      "dry eyes",
+      "dry mouth",
+      "fatigue",
+      "joint pain",
+      "difficulty swallowing",
+    ],
+    negativeKeywords: [],
+    clusters: [["dry eyes", "dry mouth", "fatigue"]],
+    cause:
+      "Autoimmune condition where immune cells attack moisture-producing glands (salivary and lacrimal).",
+    precautions:
+      "1. Use artificial tears and saliva substitutes.\n2. Stay hydrated.\n3. Take prescribed hydroxychloroquine.\n4. Regular dental care.\n5. Monitor for complications (lymphoma).",
+  },
+  {
+    name: "Marfan Syndrome",
+    pathognomonicKeywords: [
+      "marfan syndrome",
+      "tall thin heart problems",
+      "aortic aneurysm tall person",
+    ],
+    primaryKeywords: [
+      "very tall thin long limbs heart issues",
+      "lens dislocation tall person",
+    ],
+    secondaryKeywords: [
+      "tall stature",
+      "joint hypermobility",
+      "eye problems",
+      "heart murmur",
+      "stretch marks",
+    ],
+    negativeKeywords: [],
+    clusters: [["tall thin build", "heart problems", "joint hypermobility"]],
+    cause:
+      "Genetic disorder in fibrillin-1 protein affecting connective tissue throughout the body.",
+    precautions:
+      "1. Regular cardiology monitoring for aortic dilation.\n2. Beta-blockers to slow aortic dilation.\n3. Surgery for significant aortic enlargement.\n4. Avoid contact sports and heavy lifting.\n5. Regular ophthalmology check-ups.",
+  },
+  {
+    name: "Acoustic Neuroma",
+    pathognomonicKeywords: [
+      "acoustic neuroma",
+      "vestibular schwannoma",
+      "one ear hearing loss tinnitus",
+    ],
+    primaryKeywords: [
+      "one side hearing loss gradually",
+      "tinnitus one ear balance problems",
+    ],
+    secondaryKeywords: [
+      "hearing loss",
+      "ear ringing",
+      "balance problems",
+      "dizziness",
+    ],
+    negativeKeywords: [],
+    clusters: [["one-sided hearing loss", "tinnitus", "balance problems"]],
+    cause:
+      "Benign tumor on the vestibulocochlear nerve. Slow growing, compresses hearing and balance nerves.",
+    precautions:
+      "1. MRI for diagnosis.\n2. Watchful waiting for small tumors.\n3. Stereotactic radiosurgery (Gamma Knife).\n4. Surgical removal.\n5. Regular audiometry monitoring.",
+  },
+  {
+    name: "Meniere's Disease",
+    pathognomonicKeywords: [
+      "meniere's disease",
+      "meniere disease",
+      "episodic vertigo hearing loss tinnitus",
+    ],
+    primaryKeywords: [
+      "episodic severe vertigo hearing loss",
+      "spinning dizziness one ear fullness",
+    ],
+    secondaryKeywords: [
+      "vertigo",
+      "hearing loss",
+      "ear ringing",
+      "ear fullness",
+      "nausea",
+    ],
+    negativeKeywords: [],
+    clusters: [
+      ["episodic vertigo", "hearing loss", "ear fullness", "tinnitus"],
+    ],
+    cause:
+      "Caused by abnormal fluid pressure in the inner ear. Exact cause unknown.",
+    precautions:
+      "1. Low-salt diet to reduce fluid retention.\n2. Take prescribed diuretics.\n3. Avoid caffeine and alcohol.\n4. Vestibular rehabilitation exercises.\n5. Intratympanic injections for severe cases.",
+  },
+  {
+    name: "Tinnitus",
+    pathognomonicKeywords: [
+      "tinnitus",
+      "ringing in ears constant",
+      "buzzing ears no external sound",
+    ],
+    primaryKeywords: [
+      "constant ringing buzzing one or both ears",
+      "noise in ears all the time",
+    ],
+    secondaryKeywords: [
+      "ear ringing",
+      "hearing loss",
+      "dizziness",
+      "sleep problems",
+    ],
+    negativeKeywords: [],
+    clusters: [["constant ear ringing", "no external sound"]],
+    cause:
+      "Caused by noise exposure, ear infections, hearing loss, medication side effects, or stress.",
+    precautions:
+      "1. Avoid loud noise exposure.\n2. Cognitive behavioral therapy helps management.\n3. White noise or sound therapy.\n4. Hearing aids if hearing loss is present.\n5. Treat underlying cause.",
+  },
+  {
+    name: "Ménière's Attack / Vestibular Neuritis",
+    pathognomonicKeywords: [
+      "vestibular neuritis",
+      "inner ear infection vertigo",
+      "labyrinthitis",
+    ],
+    primaryKeywords: [
+      "sudden severe vertigo days",
+      "nausea vomiting vertigo days without hearing loss",
+    ],
+    secondaryKeywords: [
+      "vertigo",
+      "nausea",
+      "vomiting",
+      "imbalance",
+      "dizziness",
+    ],
+    negativeKeywords: [],
+    clusters: [["sudden severe vertigo", "nausea vomiting", "days duration"]],
+    cause:
+      "Caused by viral inflammation of the vestibular nerve disrupting balance signals.",
+    precautions:
+      "1. Take prescribed vestibular suppressants.\n2. Anti-nausea medications.\n3. Rest in quiet, dark environment.\n4. Vestibular exercises to aid recovery.\n5. Usually resolves within weeks.",
+  },
+  {
+    name: "Costochondritis",
+    pathognomonicKeywords: [
+      "costochondritis",
+      "chest wall pain cartilage",
+      "rib cartilage pain",
+    ],
+    primaryKeywords: [
+      "chest pain pressing ribs worse movement",
+      "rib junction pain pressing",
+    ],
+    secondaryKeywords: [
+      "chest pain",
+      "rib pain",
+      "pain pressing on chest",
+      "pain deep breath",
+    ],
+    negativeKeywords: [
+      "shortness of breath severe",
+      "sweating",
+      "left arm pain",
+    ],
+    clusters: [["chest pain", "worse with pressure on ribs", "movement"]],
+    cause:
+      "Inflammation of the cartilage connecting the ribs to the sternum. Often follows respiratory illness.",
+    precautions:
+      "1. Take NSAIDs for pain relief.\n2. Apply heat or cold to the chest.\n3. Avoid strenuous activity.\n4. Usually self-limiting.\n5. See a doctor to rule out cardiac causes.",
+  },
+  {
+    name: "Interstitial Cystitis",
+    pathognomonicKeywords: [
+      "interstitial cystitis",
+      "painful bladder syndrome",
+      "bladder pain no infection",
+    ],
+    primaryKeywords: [
+      "bladder pain frequent urination no infection",
+      "pelvic pain urinary frequency chronic",
+    ],
+    secondaryKeywords: [
+      "pelvic pain",
+      "frequent urination",
+      "bladder pain",
+      "urinary urgency",
+    ],
+    negativeKeywords: [],
+    clusters: [["bladder pain", "frequency", "urgency", "no infection"]],
+    cause:
+      "Cause unknown. May involve defective bladder lining, nerve dysfunction, or autoimmune factors.",
+    precautions:
+      "1. Avoid bladder irritants (caffeine, alcohol, spicy food).\n2. Take prescribed pentosan polysulfate or amitriptyline.\n3. Bladder training exercises.\n4. Physiotherapy for pelvic floor.\n5. Intravesical treatments for refractory cases.",
+  },
+  {
+    name: "Polycythemia Vera",
+    pathognomonicKeywords: [
+      "polycythemia vera",
+      "high red blood cell count",
+      "too many red cells",
+    ],
+    primaryKeywords: [
+      "ruddy complexion headache itching after shower",
+      "itching hot water blood thick",
+    ],
+    secondaryKeywords: [
+      "headache",
+      "itching",
+      "fatigue",
+      "blurred vision",
+      "blood clots",
+    ],
+    negativeKeywords: [],
+    clusters: [["itching after shower", "headache", "flushing face"]],
+    cause:
+      "Caused by JAK2 gene mutation leading to overproduction of red blood cells in bone marrow.",
+    precautions:
+      "1. Regular phlebotomy to reduce red cell mass.\n2. Take prescribed hydroxyurea.\n3. Low-dose aspirin.\n4. Monitor for blood clots.\n5. Regular hematology follow-up.",
+  },
+  {
+    name: "Lymphoma",
+    pathognomonicKeywords: [
+      "lymphoma",
+      "hodgkin lymphoma",
+      "non-hodgkin lymphoma",
+      "lymph node cancer",
+    ],
+    primaryKeywords: [
+      "painless swollen lymph nodes persistent",
+      "night sweats weight loss swollen glands",
+    ],
+    secondaryKeywords: [
+      "swollen lymph nodes",
+      "unexplained weight loss",
+      "sweating at night",
+      "fatigue",
+      "fever",
+    ],
+    negativeKeywords: [],
+    clusters: [
+      ["painless lymph node swelling", "night sweats", "weight loss", "fever"],
+    ],
+    cause:
+      "Cancer of lymphocytes. Risk factors include immunosuppression, viral infections (EBV, HIV), and age.",
+    precautions:
+      "1. Seek urgent medical evaluation and biopsy.\n2. Follow prescribed chemotherapy or radiation.\n3. Regular blood count monitoring.\n4. Avoid infections during immunosuppressive treatment.\n5. Regular follow-up for relapse.",
+  },
+  {
+    name: "Myeloma (Multiple Myeloma)",
+    pathognomonicKeywords: [
+      "multiple myeloma",
+      "myeloma",
+      "bone pain anemia kidney problems blood cancer",
+    ],
+    primaryKeywords: [
+      "bone pain back ribs anemia weakness",
+      "frequent infections bone pain",
+    ],
+    secondaryKeywords: [
+      "bone pain",
+      "fatigue",
+      "anemia",
+      "kidney problems",
+      "frequent infections",
+      "back pain",
+    ],
+    negativeKeywords: [],
+    clusters: [["bone pain", "anemia", "frequent infections"]],
+    cause:
+      "Cancer of plasma cells in bone marrow producing abnormal antibodies. Risk: age, family history.",
+    precautions:
+      "1. Seek hematology evaluation.\n2. Prescribed chemotherapy, targeted therapy, and stem cell transplant.\n3. Bisphosphonates for bone protection.\n4. Stay hydrated for kidney protection.\n5. Regular monitoring of blood and urine proteins.",
+  },
+
+  // ── ADDITIONAL INFECTIOUS ───────────────────────────────────────────────────
+  {
+    name: "Meningococcemia",
+    pathognomonicKeywords: [
+      "meningococcemia",
+      "meningococcal septicemia",
+      "non-blanching petechial rash fever",
+    ],
+    primaryKeywords: [
+      "purple non-fading spots fever",
+      "petechiae fever rapidly spreading",
+    ],
+    secondaryKeywords: ["fever", "rash", "headache", "stiff neck", "vomiting"],
+    negativeKeywords: [],
+    clusters: [["non-blanching rash", "high fever", "rapid deterioration"]],
+    cause:
+      "Caused by Neisseria meningitidis bacteria entering the bloodstream. Life-threatening emergency.",
+    precautions:
+      "1. CALL EMERGENCY SERVICES IMMEDIATELY.\n2. IV antibiotics (cefotaxime, penicillin) within minutes.\n3. Intensive care unit admission.\n4. Meningococcal vaccination prevents infection.\n5. Close contacts require prophylactic antibiotics.",
+  },
+  {
+    name: "Sepsis",
+    pathognomonicKeywords: [
+      "sepsis",
+      "blood poisoning",
+      "septicemia",
+      "septic shock",
+    ],
+    primaryKeywords: [
+      "high fever confusion rapid breathing fast heart rate infection",
+    ],
+    secondaryKeywords: [
+      "high fever",
+      "confusion",
+      "rapid breathing",
+      "low blood pressure",
+      "chills",
+    ],
+    negativeKeywords: [],
+    clusters: [
+      ["high fever", "confusion", "rapid heart rate", "suspected infection"],
+    ],
+    cause:
+      "Life-threatening response to infection causing systemic inflammation and organ failure.",
+    precautions:
+      "1. SEEK EMERGENCY CARE IMMEDIATELY.\n2. IV antibiotics within one hour.\n3. IV fluids for blood pressure support.\n4. Blood cultures before antibiotics.\n5. ICU care for septic shock.",
+  },
+  {
+    name: "Shingella (Shigellosis)",
+    pathognomonicKeywords: [
+      "shigellosis",
+      "shigella",
+      "bloody diarrhea dysentery bacteria",
+    ],
+    primaryKeywords: [
+      "bloody diarrhea fever cramping sudden",
+      "acute dysentery bloody stool",
+    ],
+    secondaryKeywords: [
+      "bloody diarrhea",
+      "abdominal cramps",
+      "fever",
+      "nausea",
+      "vomiting",
+    ],
+    negativeKeywords: [],
+    clusters: [["bloody diarrhea", "fever", "abdominal cramps"]],
+    cause:
+      "Caused by Shigella bacteria from contaminated food or water. Highly infectious.",
+    precautions:
+      "1. Take prescribed antibiotics (azithromycin, ciprofloxacin).\n2. Stay hydrated.\n3. Strict hand hygiene.\n4. Avoid preparing food for others.\n5. Report to health authorities if outbreak suspected.",
+  },
+  {
+    name: "Rocky Mountain Spotted Fever",
+    pathognomonicKeywords: [
+      "rocky mountain spotted fever",
+      "rmsf",
+      "tick bite rash hands feet fever",
+    ],
+    primaryKeywords: [
+      "fever rash hands feet tick bite",
+      "rash starting wrists ankles fever",
+    ],
+    secondaryKeywords: ["fever", "headache", "rash", "muscle pain", "nausea"],
+    negativeKeywords: [],
+    clusters: [["fever", "rash palms soles", "recent tick bite"]],
+    cause:
+      "Caused by Rickettsia rickettsii bacteria transmitted by tick bites.",
+    precautions:
+      "1. Take prescribed doxycycline immediately.\n2. Remove ticks promptly and correctly.\n3. Use tick repellent outdoors.\n4. Check for ticks after outdoor activities.\n5. Seek care immediately — can be fatal if delayed.",
+  },
+  {
+    name: "Cat Scratch Disease",
+    pathognomonicKeywords: [
+      "cat scratch disease",
+      "cat scratch fever",
+      "bartonella cat scratch",
+    ],
+    primaryKeywords: [
+      "swollen lymph nodes near cat scratch",
+      "cat scratch enlarged lymph node",
+    ],
+    secondaryKeywords: [
+      "swollen lymph nodes",
+      "fever",
+      "fatigue",
+      "swelling near scratch",
+    ],
+    negativeKeywords: [],
+    clusters: [["cat scratch", "swollen lymph node", "fever"]],
+    cause:
+      "Caused by Bartonella henselae bacteria transmitted through cat scratches or bites.",
+    precautions:
+      "1. Usually self-limiting in healthy individuals.\n2. Prescribed antibiotics for severe cases.\n3. Wash all cat scratches with soap and water immediately.\n4. Avoid rough play with cats.\n5. Seek care if lymph nodes are very swollen or fever persists.",
+  },
+  {
+    name: "Q Fever",
+    pathognomonicKeywords: [
+      "q fever",
+      "coxiella burnetii",
+      "fever after livestock contact",
+    ],
+    primaryKeywords: [
+      "high fever after animal farm contact",
+      "pneumonia hepatitis after farm",
+    ],
+    secondaryKeywords: [
+      "high fever",
+      "headache",
+      "muscle pain",
+      "fatigue",
+      "cough",
+      "chest pain",
+    ],
+    negativeKeywords: [],
+    clusters: [["fever", "headache", "animal/farm exposure"]],
+    cause:
+      "Caused by Coxiella burnetii bacteria, spread through infected livestock (cattle, sheep, goats).",
+    precautions:
+      "1. Take prescribed doxycycline.\n2. Use masks when handling animals.\n3. Pasteurize milk.\n4. Q fever vaccine for high-risk workers.\n5. Long-term antibiotics for chronic Q fever.",
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────

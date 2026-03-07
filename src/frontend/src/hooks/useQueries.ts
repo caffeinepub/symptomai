@@ -1,6 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import type { History } from "../backend.d";
-import { analyzeSymptoms } from "../utils/symptomAnalyzer";
+import type { ImageData } from "../utils/geminiAnalyzer";
+import { analyzeSymptomsSmart } from "../utils/geminiAnalyzer";
 import { useActor } from "./useActor";
 
 export function useGetHistory() {
@@ -22,11 +23,32 @@ export function useAnalyzeSymptoms() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: async (symptoms: string): Promise<History> => {
-      // Run analysis locally — this always succeeds
-      const result = analyzeSymptoms(symptoms);
+    mutationFn: async (
+      payload:
+        | {
+            symptoms: string;
+            age?: string;
+            gender?: string;
+            imageData?: ImageData;
+          }
+        | string,
+    ): Promise<History> => {
+      // Support both old string API and new object API
+      const symptoms = typeof payload === "string" ? payload : payload.symptoms;
+      const age = typeof payload === "object" ? payload.age : undefined;
+      const gender = typeof payload === "object" ? payload.gender : undefined;
+      const imageData =
+        typeof payload === "object" ? payload.imageData : undefined;
 
-      // Persist to backend in the background — do NOT await, so UI is instant
+      // Call Gemini AI (with image support)
+      const result = await analyzeSymptomsSmart(
+        symptoms,
+        age,
+        gender,
+        imageData,
+      );
+
+      // Persist to backend in the background — do NOT await, so UI is not blocked
       if (actor) {
         actor.analyzeSymptoms(symptoms).catch(() => {
           // Backend call failed — silently ignore, local result is sufficient

@@ -33,27 +33,27 @@
   :root {
     --radius: 0.75rem;
 
-    /* Off-White background, Charcoal Grey text */
-    --background: 0.977 0.002 90;
-    --foreground: 0.22 0.004 270;
+    /* Off-White background (#F9F9F9), Charcoal Grey (#2D2E2E) text */
+    --background: 0.979 0.000 0;
+    --foreground: 0.22 0.000 0;
 
-    --card: 0.96 0.003 90;
-    --card-foreground: 0.22 0.004 270;
+    --card: 0.96 0.000 0;
+    --card-foreground: 0.22 0.000 0;
 
-    --popover: 0.96 0.003 90;
-    --popover-foreground: 0.22 0.004 270;
+    --popover: 0.96 0.000 0;
+    --popover-foreground: 0.22 0.000 0;
 
     /* Primary: clean cyan-blue — medical, precise */
     --primary: 0.52 0.14 200;
     --primary-foreground: 0.98 0.002 90;
 
     /* Secondary: light grey */
-    --secondary: 0.90 0.004 270;
-    --secondary-foreground: 0.25 0.005 270;
+    --secondary: 0.91 0.000 0;
+    --secondary-foreground: 0.22 0.000 0;
 
     /* Muted */
-    --muted: 0.92 0.004 270;
-    --muted-foreground: 0.48 0.01 270;
+    --muted: 0.93 0.000 0;
+    --muted-foreground: 0.50 0.000 0;
 
     /* Accent: same as primary — unified */
     --accent: 0.52 0.14 200;
@@ -64,8 +64,8 @@
     --destructive-foreground: 0.98 0.002 90;
 
     /* Borders */
-    --border: 0.82 0.006 270;
-    --input: 0.85 0.005 270;
+    --border: 0.84 0.000 0;
+    --input: 0.86 0.000 0;
     --ring: 0.52 0.14 200;
 
     /* Charts */
@@ -76,13 +76,13 @@
     --chart-5: 0.55 0.22 25;
 
     /* Sidebar */
-    --sidebar: 0.94 0.003 90;
-    --sidebar-foreground: 0.22 0.004 270;
+    --sidebar: 0.94 0.000 0;
+    --sidebar-foreground: 0.22 0.000 0;
     --sidebar-primary: 0.52 0.14 200;
-    --sidebar-primary-foreground: 0.98 0.002 90;
-    --sidebar-accent: 0.90 0.004 270;
-    --sidebar-accent-foreground: 0.25 0.005 270;
-    --sidebar-border: 0.82 0.006 270;
+    --sidebar-primary-foreground: 0.98 0.000 0;
+    --sidebar-accent: 0.90 0.000 0;
+    --sidebar-accent-foreground: 0.22 0.000 0;
+    --sidebar-border: 0.84 0.000 0;
     --sidebar-ring: 0.52 0.14 200;
 
     /* Custom semantic tokens */
